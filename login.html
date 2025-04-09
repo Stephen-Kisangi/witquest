@@ -1,53 +1,4 @@
-<?php
-// login.php - Place this code at the very top of the file
-require_once __DIR__ . '/admission/api/auto_login.php';
 
-if (isset($_SESSION['user_id']) && isset($_SESSION['user_role'])) {
-    header("Location: admission/payment.php");
-    exit;
-}
-// Message handling on login page
-$message = '';
-$message_type = '';
-
-// Success messages
-if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
-    $message = 'You have been successfully logged out.';
-    $message_type = 'success';
-}
-
-// Error messages
-if (isset($_GET['error'])) {
-    switch ($_GET['error']) {
-        case 'not_logged_in':
-            $message = 'You are not currently logged in.';
-            $message_type = 'warning';
-            break;
-        case 'unauthorized_logout':
-            $message = 'You must be logged in to log out.';
-            $message_type = 'danger';
-            break;
-        case 'session_expired':
-            $message = 'Your session has expired. Please log in again.';
-            $message_type = 'warning';
-            break;
-        case 'logout_failed':
-            $message = 'There was an issue logging out. Please try again.';
-            $message_type = 'danger';
-            break;
-        default:
-            $message = 'An unexpected error occurred.';
-            $message_type = 'danger';
-    }
-}
-?>
-
-<!-- In your HTML, display the message -->
-<?php if (!empty($message)): ?>
-    <div class="alert alert-<?php echo htmlspecialchars($message_type); ?>">
-        <?php echo htmlspecialchars($message); ?>
-    </div>
-<?php endif; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,11 +25,11 @@ if (isset($_GET['error'])) {
         <div class="container">
             <!-- Logo and School Name with Tagline -->
             <div class="d-flex align-items-center">
-                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
                     <img src="./images/Picture1 (2).png" alt="Witquest Castle School Logo" class="logo me-2">
                 </a>
                 <div class="school-info ms-3">
-                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
                     <h1 class="school-name">Witquest Castle School</h1>
                 </a>
                     <p class="tagline"><< Kenyan Heart, Global Mind >> </p>
@@ -93,7 +44,7 @@ if (isset($_GET['error'])) {
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="index.html">
                             <i class="fa fa-home icon"></i> Home
                         </a>
                     </li>
