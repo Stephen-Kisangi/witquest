@@ -1,0 +1,447 @@
+<?php
+// Start session and handle errors
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
+session_start();
+
+// Initialize session data
+$errors = $_SESSION['errors'] ?? [];
+$old_input = $_SESSION['old_input'] ?? [];
+$success_message = $_SESSION['success_message'] ?? '';
+
+// Clear session data
+unset($_SESSION['errors'], $_SESSION['old_input'], $_SESSION['success_message']);
+
+// Set default CSRF token
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witquest Castle School - Parent Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/school-auth.css">
+</head>
+<body class="auth-page">
+    <!-- This part goes in your HTML where you want to display alerts -->
+<div id="global-alert" class="global-alert">
+    <?php if (!empty($errors)): ?>
+        <div class="alert-message alert-error animate__animated animate__fadeInDown">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <div>
+                <strong>Registration Failed</strong>
+                <?php foreach ($errors as $field => $error): ?>
+                    <div data-duration="<?= is_array($error) ? ($error['duration'] ?? 5000) : 5000 ?>">
+                        <?= htmlspecialchars(is_array($error) ? $error['text'] : $error) ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="alert-progress">
+                <div class="alert-progress-bar"></div>
+            </div>
+        </div>
+    <?php endif; ?>
+    
+    <?php if (!empty($success_message)): ?>
+        <div class="alert-message alert-success animate__animated animate__fadeInDown">
+            <i class="fas fa-check-circle me-2"></i>
+            <div data-duration="<?= is_array($success_message) ? ($success_message['duration'] ?? 3000) : 3000 ?>">
+                <?= htmlspecialchars(is_array($success_message) ? $success_message['text'] : $success_message) ?>
+            </div>
+            <div class="alert-progress">
+                <div class="alert-progress-bar"></div>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+    <section class="school-hero auth-page">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title animate__animated animate__fadeInDown">
+                        Excellence in <span class="text-school-red">Global Education</span>
+                    </h1>
+                    <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                        Nurturing Tomorrow's Leaders at Witquest Castle School
+                    </p>
+                    <div class="hero-cta animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="#admissions" class="btn btn-hero-primary">Explore Admissions</a>
+                        <a href="#virtual-tour" class="btn btn-hero-secondary ms-3">Virtual Tour</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image animate__animated animate__fadeInRight">
+                    <img src="./images/vision/Flux_Dev_A_vibrant_and_colorful_illustration_of_a_diverse_grou_3 (2).jpeg" 
+                         alt="Witquest students engaged in learning" 
+                         class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Registration Form Section -->
+<section id="signupPage" class="auth-container">
+        <div class="auth-card">
+            <div class="school-logo animate__animated animate__fadeInDown">
+                <img src="./images/Picture1 (2).png" alt="Witquest Castle School Logo" class="logo-img">
+            </div>
+            
+            <form  id="signupForm" method="POST" action="signup.php" class="needs-validation" novalidate>
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+            <h2 class="auth-title">Parent Registration</h2>
+
+            <!-- Full Name Field -->
+            <div class="form-group mb-4">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" id="fullName" name="fullName"
+                       class="form-control <?= isset($errors['fullName']) ? 'is-invalid' : '' ?>"
+                       value="<?= htmlspecialchars($old_input['fullName'] ?? '') ?>"
+                       required>
+                <?php if (isset($errors['fullName'])): ?>
+                    <div class="invalid-feedback"><?= $errors['fullName'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Phone Number Field -->
+            <div class="form-group mb-4">
+                <label for="phone" class="form-label">Phone Number</label>
+                <div class="input-group">
+                    <span class="input-group-text">+254</span>
+                    <input type="tel" id="phone" name="phone"
+                           class="form-control <?= isset($errors['phone']) ? 'is-invalid' : '' ?>"
+                           value="<?= htmlspecialchars($old_input['phone'] ?? '') ?>"
+                           required>
+                </div>
+                <?php if (isset($errors['phone'])): ?>
+                    <div class="invalid-feedback"><?= $errors['phone'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group mb-4">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email"
+                       class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>"
+                       value="<?= htmlspecialchars($old_input['email'] ?? '') ?>"
+                       required>
+                <?php if (isset($errors['email'])): ?>
+                    <div class="invalid-feedback"><?= $errors['email'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group mb-4">
+                <label for="password" class="form-label">Password</label>
+                <div class="input-group">
+                    <input type="password" id="password" name="password"
+                           class="form-control <?= isset($errors['password']) ? 'is-invalid' : '' ?>"
+                           required>
+                    <button type="button" class="btn btn-password-toggle">
+                        <i class="fas fa-eye-slash"></i>
+                    </button>
+                </div>
+                <div class="password-strength mt-2">
+                    <div class="strength-bar"></div>
+                </div>
+                <small class="form-text text-muted">
+                    8+ characters with uppercase, lowercase, number, and special character
+                </small>
+                <?php if (isset($errors['password'])): ?>
+                    <div class="invalid-feedback d-block"><?= $errors['password'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <button type="submit" class="btn btn-school w-100 py-2 mt-3">
+                Create Account <i class="fas fa-user-plus ms-2"></i>
+            </button>
+        </form>
+
+        <div class="auth-links mt-4 animate__animated animate__fadeInUp">
+            <span>Already have an account?</span>
+            <a href="login.php" class="school-link">Login here</a>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Enhanced Form Validation System with Progress Integration
+class FormValidator {
+    constructor(formId) {
+        this.form = document.getElementById(formId);
+        if (!this.form) return;
+
+        // Initialize critical elements first
+        this.passwordInput = this.form.querySelector('#password');
+        this.strengthBar = this.form.querySelector('.strength-bar');
+        this.toggleButton = this.form.querySelector('.btn-password-toggle');
+        this.toggleIcon = this.toggleButton?.querySelector('i');
+
+        // Validate essential elements
+        if (!this.passwordInput || !this.strengthBar || !this.toggleButton || !this.toggleIcon) {
+            console.error('Critical form elements missing');
+            return;
+        }
+
+        // Initialize functionality
+        this.initializeValidation();
+        this.setupEventListeners();
+        this.initializePasswordStrength();
+    }
+
+    initializeValidation() {
+        this.fields = {
+            fullName: {
+                pattern: /^[A-Za-z]{2,}(?:\s[A-Za-z]{2,})+$/,
+                message: 'Please enter both first and last name'
+            },
+            phone: {
+                pattern: /^07\d{8}$/,
+                message: 'Must be a valid Kenyan number starting with 07'
+            },
+            email: {
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Please enter a valid email address'
+            },
+            password: {
+                pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                message: 'Must include: uppercase, lowercase, number, and special character (@$!%*?&)'
+            }
+        };
+    }
+
+    setupEventListeners() {
+        // Form submission handler
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (this.validateForm()) this.form.submit();
+        });
+
+        // Real-time input handling
+        this.form.addEventListener('input', (e) => {
+            this.validateField(e.target.id);
+            if (e.target.id === 'password') this.updateStrengthDisplay();
+        });
+
+        // Password visibility toggle
+        this.toggleButton.addEventListener('click', () => this.togglePasswordVisibility());
+    }
+
+    initializePasswordStrength() {
+        // Initialize with empty state
+        this.updateStrengthDisplay();
+        // Set up continuous updates
+        this.passwordInput.addEventListener('input', () => this.updateStrengthDisplay());
+    }
+
+    updateStrengthDisplay() {
+        const strength = this.calculatePasswordStrength();
+        const width = this.passwordInput.value ? this.getStrengthWidth(strength) : '0%';
+        
+        // Force CSS repaint for smooth transition
+        this.strengthBar.style.width = '0';
+        void this.strengthBar.offsetWidth; // Trigger reflow
+        this.strengthBar.style.width = width;
+        this.strengthBar.style.backgroundColor = this.getStrengthColor(strength);
+    }
+
+    calculatePasswordStrength() {
+        const password = this.passwordInput.value;
+        if (password.length === 0) return 'none';
+        
+        let strength = 0;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[a-z]/.test(password)) strength++;
+        if (/\d/.test(password)) strength++;
+        if (/[@$!%*?&]/.test(password)) strength++;
+
+        if (password.length >= 12 && strength === 4) return 'strong';
+        if (password.length >= 8 && strength >= 3) return 'medium';
+        return 'weak';
+    }
+
+    getStrengthWidth(strength) {
+        return {
+            none: '0%',
+            weak: '33%',
+            medium: '66%', 
+            strong: '100%'
+        }[strength];
+    }
+
+    getStrengthColor(strength) {
+        return {
+            none: 'transparent',
+            weak: '#dc3545',
+            medium: '#ffc107',
+            strong: '#28a745'
+        }[strength];
+    }
+
+    togglePasswordVisibility() {
+        const isPassword = this.passwordInput.type === 'password';
+        this.passwordInput.type = isPassword ? 'text' : 'password';
+        this.toggleIcon.classList.toggle('fa-eye-slash', !isPassword);
+        this.toggleIcon.classList.toggle('fa-eye', isPassword);
+    }
+
+    validateForm() {
+        return Object.keys(this.fields).every(field => this.validateField(field));
+    }
+
+    validateField(fieldId) {
+        const field = this.form.querySelector(`#${fieldId}`);
+        if (!field) return false;
+        
+        const fieldConfig = this.fields[fieldId];
+        if (!fieldConfig) return true;
+        
+        const feedback = field.closest('.form-group')?.querySelector('.invalid-feedback');
+        const { pattern, message } = fieldConfig;
+        const isValid = pattern.test(field.value.trim());
+
+        field.classList.toggle('is-invalid', !isValid);
+        if (feedback) feedback.textContent = isValid ? '' : message;
+        return isValid;
+    }
+}
+
+// Progress Alert System
+class ProgressAlert {
+    constructor() {
+        // More specific selector targeting the global-alert div and its child alert messages
+        this.alertContainer = document.getElementById('global-alert');
+        if (!this.alertContainer) {
+            console.log('Alert container not found');
+            return;
+        }
+        
+        this.alerts = this.alertContainer.querySelectorAll('.alert-message');
+        console.log(`Found ${this.alerts.length} alerts`);
+        
+        if (this.alerts.length) {
+            this.initAlerts();
+        }
+        
+        // Set up a mutation observer to handle dynamically added alerts
+        this.setupAlertObserver();
+    }
+
+    setupAlertObserver() {
+        // Create an observer that will watch for new alerts being added
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'childList' && mutation.addedNodes.length) {
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.classList && node.classList.contains('alert-message')) {
+                            console.log('New alert detected, initializing it');
+                            this.initSingleAlert(node);
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Start observing the alert container for changes
+        observer.observe(this.alertContainer, { childList: true, subtree: true });
+    }
+
+    initAlerts() {
+        this.alerts.forEach(alert => {
+            this.initSingleAlert(alert);
+        });
+    }
+
+    initSingleAlert(alert) {
+        const progressBar = alert.querySelector('.alert-progress-bar');
+        if (!progressBar) {
+            console.log('No progress bar found in alert');
+            return;
+        }
+
+        // Get the duration from data attributes
+        let duration = 5000; // Default duration
+        
+        // Try to find duration in different places
+        const messageDiv = alert.querySelector('div[data-duration]');
+        if (messageDiv && messageDiv.dataset.duration) {
+            duration = parseInt(messageDiv.dataset.duration, 10);
+        } else if (alert.dataset.duration) {
+            duration = parseInt(alert.dataset.duration, 10);
+        } else {
+            // Fallback to type-based duration
+            duration = alert.classList.contains('alert-success') ? 3000 : 5000;
+        }
+        
+        console.log(`Setting alert with duration: ${duration}ms`);
+        
+        // Ensure progress bar is at starting position
+        progressBar.style.width = '0%';
+        
+        // Force reflow before starting animation
+        void progressBar.offsetWidth;
+        
+        // Apply transition
+        progressBar.style.transition = `width ${duration}ms linear`;
+        progressBar.style.width = '100%';
+        
+        // Set timeout for removing the alert
+        setTimeout(() => {
+            alert.classList.remove('animate__fadeInDown');
+            alert.classList.add('animate__fadeOutUp');
+            
+            setTimeout(() => {
+                alert.remove();
+                // Redirect on success alert if needed
+                if (alert.classList.contains('alert-success')) {
+                    window.location.href = 'login.php';
+                }
+            }, 500); // Time for fade out animation
+        }, duration);
+    }
+}
+
+// Initialize application when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize form validation
+    new FormValidator('signupForm');
+    
+    // Initialize alert system
+    new ProgressAlert();
+    
+    // Debug helper function to manually trigger an alert (for testing)
+    window.showTestAlert = function(type = 'error') {
+        const alertContainer = document.getElementById('global-alert');
+        if (!alertContainer) return;
+        
+        const alertHTML = `
+            <div class="alert-message alert-${type} animate__animated animate__fadeInDown">
+                <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle me-2"></i>
+                <div data-duration="5000">
+                    This is a test ${type} message
+                </div>
+                <div class="alert-progress">
+                    <div class="alert-progress-bar"></div>
+                </div>
+            </div>
+        `;
+        
+        alertContainer.innerHTML += alertHTML;
+    }
+});
+</script>
+</body>
+</html>

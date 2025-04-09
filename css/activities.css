@@ -1,0 +1,913 @@
+:root {
+    --deep-red: #8B0000;
+    --deep-blue: #00008B;
+    --deep-purple: #4B0082;
+    --deep-yellow: #FFD700;
+    --green-yellow: #ADFF2F;
+    --deep-orange: #FF4500;
+    
+    /* Gradient combinations for various elements */
+    --gradient-primary: linear-gradient(135deg, var(--deep-red), var(--deep-purple));
+    --gradient-secondary: linear-gradient(135deg, var(--deep-blue), var(--deep-purple));
+    --gradient-accent: linear-gradient(135deg, var(--deep-yellow), var(--deep-orange));
+    --gradient-modern: linear-gradient(135deg, var(--deep-blue), var(--green-yellow));
+    --gradient-warm: linear-gradient(135deg, var(--deep-orange), var(--deep-red));
+    --gradient-cool: linear-gradient(135deg, var(--deep-blue), var(--deep-yellow));
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+}
+
+
+/* Header Section */
+.navbar {
+    background-color: #f9f9f9;
+    padding: 0.5rem 0;
+}
+
+/* Logo */
+.logo {
+    height: 50px;
+}
+
+/* School Name and Tagline */
+.school-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.school-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003366; /* Deep blue for school name */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #8B0000;
+    /*font-weight: bold;*/
+    font-style: italic;
+    text-transform: capitalize;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #8B0000; /* Cursor effect */
+    animation: slideIn 2s ease-out, typing 4s steps(30) 2s forwards, blink 1.0s step-end infinite 6s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+
+
+/* Navbar Items */
+.navbar-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar Links */
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+/* Remove underline from the icon */
+.nav-link i {
+    text-decoration: none;
+}
+
+/* Icons */
+.nav-link .icon {
+    font-size: 1.2rem;
+    color: #00008b /* Deep red for icons */
+}
+
+/* Hover State for Links (Menu Name Only) */
+.nav-link:hover {
+    background-color: #e0f7fa; /* Light cyan background on hover */
+    color: #800000;
+}
+
+/* No Hover Effects on Icons */
+.nav-link:hover .icon {
+    color: #8B0000; /* Keep icon color the same on hover */
+}
+
+/* Dropdown Visibility on Hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Ensure it aligns properly */
+}
+
+.nav-item.dropdown.show .dropdown-menu {
+    display: block; /* Show dropdown when toggled */
+}
+
+/* Dropdown Arrows */
+.navbar .dropdown-toggle::after {
+    margin-left: 5px;
+    color: #00008b; /* Deep blue for dropdown arrows */
+    transform: rotate(0deg); /* Remove transition */
+}
+
+/* Rotate dropdown arrow on click */
+.navbar .dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg); /* Rotate the arrow */
+}
+
+
+
+
+/* Dividers */
+.nav-item.divider::before {
+    content: "|";
+    font-size: 1.5rem;
+    color: #800000;
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 8px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #800000; /* Deep red hover for dropdown items */
+    color: #fff;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .school-info {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .nav-item.divider::before {
+        display: none; /* Hide dividers for mobile */
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+.hero-section {
+    /* Remove padding left and right */
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    width: 100vw; /* Use viewport width */
+    margin-left: calc(-50vw + 50%); /* Negative margin technique to break out of container */
+    box-sizing: border-box;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/activities/activities-page/zonal-games-championship.webp');
+    background-position: center;
+    background-size: cover; /* Ensure image covers the full area */
+    background-blend-mode: overlay;
+    background-color: rgba(75, 0, 130, 0.3); /* Deep purple with transparency */
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.7), rgba(75, 0, 130, 0.7)); /* Deep red to deep purple gradient */
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--deep-blue);
+}
+
+.hero-title {
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.activity-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    background-color: white;
+    border: none;
+    height: 100%;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.activity-date {
+    font-size: 0.9rem;
+    color: var(--deep-red);
+    font-weight: 600;
+}
+
+.activity-title {
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: var(--deep-blue);
+}
+
+.activity-description {
+    color: #555;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: var(--deep-blue);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--gradient-modern);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(75, 0, 130, 0.4);
+}
+
+.py-5.category{
+
+    background: var(--gradient-secondary);
+}
+
+.category-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.section-title.category {
+    color: white;
+}
+
+h5 {
+    color: white;
+}
+
+.category-icon:hover {
+   background-color: transparent;
+    color: var(--deep-yellow);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-top: 40px;
+}
+
+.py-5.timeline {
+    background: var(--gradient-cool);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--gradient-modern);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: var(--deep-orange);
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.timeline-title {
+    font-weight: 600;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.upcoming-events {
+    background-color: var(--light-accent);
+    padding: 60px 0;
+    margin-top: 40px;
+}
+
+.section-title {
+    color: var(--deep-blue);
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+h2.section-title.timelinep {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-modern);
+}
+
+p.timelinep{
+    color: white;
+}
+
+.gallery-section {
+    padding: 60px 0;
+}
+
+.gallery-item {
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(12, 35, 64, 0.8));
+    color: white;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+.year-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.year-tab {
+    padding: 10px 20px;
+    margin: 0 10px 10px;
+    background-color: var(--mid-accent);
+    color: var(--deep-blue);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.year-tab.active {
+    background-color: var(--deep-blue);
+    color: white;
+}
+
+.events-calendar {
+    margin-top: 40px;
+}
+
+.month-header {
+    background: var(--gradient-cool);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.calendar-event {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.calendar-date {
+    min-width: 60px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--mid-accent);
+    color: var(--deep-purple);
+    margin-right: 15px;
+    font-weight: 600;
+}
+
+.calendar-details {
+    flex-grow: 1;
+}
+
+.calendar-title {
+    font-weight: 600;
+    color: var(--deep-blue);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--gradient-warm);
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    background-color: var(--deep-red);
+}
+
+.btn-light {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-primary {
+    color: var(--deep-blue);
+    border-color: var(--deep-blue);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--deep-blue);
+    color: white;
+}
+
+.btn-sm {
+    transition: all 0.3s ease;
+}
+
+.btn-sm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* Make "View Details" buttons consistent with school colors */
+.activity-card .btn-sm {
+    background-color: var(--deep-blue) !important;
+    color: white !important;
+}
+
+.activity-card .btn-sm:hover {
+    background-color: var(--deep-red) !important;
+    color: white !important;
+}
+
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    top: 50%; /* Position at 50% from the top */
+    transform: translateY(-50%); /* Center vertically by shifting up half of its height */
+    right: 2rem; /* Keep it on the right side */
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+    transition: all 0.3s ease, opacity 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-50%) scale(1.1); /* Maintain vertical centering when scaling */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Footer Styles */
+footer {
+    background: var(--gradient-secondary);
+    color: white;
+    padding: 40px 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: auto;
+}
+
+.footer-heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #FFC107;
+    margin-bottom: 15px;
+}
+
+.footer-links, .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #FFC107;
+    text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+.footer-links i, .footer-contact i {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-contact i {
+    color: #FFC107;
+    font-size: 1rem;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.footer-contact a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+    color: #FFC107;
+}
+
+.footer-contact li:hover i {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.footer-separator {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+.social-icons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    color: #FFC107;
+    transform: scale(1.2);
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .school-hero {
+        padding: 6rem 0 4rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .btn-hero-secondary {
+        margin-left: 0 !important;
+    }
+    
+    .hero-image {
+        margin-top: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .btn-hero-primary, .btn-hero-secondary {
+        padding: 0.75rem 2rem;
+    }
+    
+    .footer-col {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .auth-page {
+        padding: 1rem 0.5rem;
+    }
+    
+    .auth-card {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+    
+    .logo-img {
+        max-width: 150px;
+    }
+    
+    .auth-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-control, .input-group-text, .btn-password-toggle {
+        font-size: 16px; /* Prevents iOS zoom on input focus */
+        padding: 0.6rem 1rem;
+    }
+    
+    .invalid-feedback {
+        font-size: 0.8rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .btn-hero-primary, .btn-hero-secondary {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .global-alert {
+        width: 95%;
+        top: 10px;
+    }
+    
+    .alert-message {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer-heading {
+        font-size: 1.3rem;
+    }
+    
+    .social-icon {
+        font-size: 1.3rem;
+        margin: 0 8px;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .btn-school:active {
+        transform: translateY(1px);
+    }
+    
+    .form-control:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(75,0,130,0.3);
+    }
+    
+    .btn-password-toggle:active {
+        background-color: #d1d6db;
+    }
+    
+    .footer-links a:active, 
+    .footer-contact a:active,
+    .social-icon:active {
+        color: #FFC107;
+    }
+    
+    .hero-image:active img {
+        transform: scale(1.02);
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+        font-size: 16px; /* Ensures no zoom on iOS */
+    }
+}
+
+/* Ensure Form Elements are Touch-Friendly */
+@media (max-width: 768px) {
+    .btn, 
+    .form-control,
+    .input-group-text,
+    .btn-password-toggle {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+    }
+    
+    .form-label {
+        margin-bottom: 0.3rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .auth-page {
+        background: none !important;
+    }
+    
+    .auth-card {
+        box-shadow: none !important;
+        border: 1px solid #dee2e6;
+    }
+    
+    .btn-password-toggle,
+    .alert-message {
+        display: none !important;
+    }
+}

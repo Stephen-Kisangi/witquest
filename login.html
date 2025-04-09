@@ -1,0 +1,650 @@
+<?php
+// login.php - Place this code at the very top of the file
+require_once __DIR__ . '/admission/api/auto_login.php';
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_role'])) {
+    header("Location: admission/payment.php");
+    exit;
+}
+// Message handling on login page
+$message = '';
+$message_type = '';
+
+// Success messages
+if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
+    $message = 'You have been successfully logged out.';
+    $message_type = 'success';
+}
+
+// Error messages
+if (isset($_GET['error'])) {
+    switch ($_GET['error']) {
+        case 'not_logged_in':
+            $message = 'You are not currently logged in.';
+            $message_type = 'warning';
+            break;
+        case 'unauthorized_logout':
+            $message = 'You must be logged in to log out.';
+            $message_type = 'danger';
+            break;
+        case 'session_expired':
+            $message = 'Your session has expired. Please log in again.';
+            $message_type = 'warning';
+            break;
+        case 'logout_failed':
+            $message = 'There was an issue logging out. Please try again.';
+            $message_type = 'danger';
+            break;
+        default:
+            $message = 'An unexpected error occurred.';
+            $message_type = 'danger';
+    }
+}
+?>
+
+<!-- In your HTML, display the message -->
+<?php if (!empty($message)): ?>
+    <div class="alert alert-<?php echo htmlspecialchars($message_type); ?>">
+        <?php echo htmlspecialchars($message); ?>
+    </div>
+<?php endif; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witquest Castle School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CDN for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/school-auth.css">
+    <link rel="stylesheet" href="./css/login.css">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo and School Name with Tagline -->
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <img src="./images/Picture1 (2).png" alt="Witquest Castle School Logo" class="logo me-2">
+                </a>
+                <div class="school-info ms-3">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <h1 class="school-name">Witquest Castle School</h1>
+                </a>
+                    <p class="tagline"><< Kenyan Heart, Global Mind >> </p>
+                </div>
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Menu Items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
+                            <i class="fa fa-home icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html" id="activitiesDropdown">
+                            <i class="fa fa-info-circle icon"></i> About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Mission</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Vision</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Motto</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="activities.html" id="activitiesDropdown">
+                            <i class="fa fa-cogs icon"></i> Activities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="activitiesDropdown">
+                            <li><a class="dropdown-item" href="activities.html#sports"><i class="fa fa-thumbtack"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Arts</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Music</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Drama</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Debates</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> STEM Programs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Community Outreach</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Field Trips</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="academics.html">
+                            <i class="fa fas fa-book icon"></i> Academics
+                        </a>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="facilities.html" id="activitiesDropdown">
+                            <i class="fa fa-building icon"></i> Facilities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facilitiesDropdown">
+                            <li><a class="dropdown-item" href="facilities.html#studyRoom"><i class="fa fa-thumbtack"></i> Study Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#creativitySpace"><i class="fa fa-thumbtack"></i> Creativity Space</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#laboratory"><i class="fa fa-thumbtack"></i> Laboratory</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#sportField"><i class="fa fa-thumbtack"></i> Sport Field</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#diningRoom"><i class="fa fa-thumbtack"></i> Dining Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#auditorium"><i class="fa fa-thumbtack"></i> Auditorium</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#gymnasticRooms"><i class="fa fa-thumbtack"></i> Gymnastic Rooms</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#swimmingPool"><i class="fa fa-thumbtack"></i> Swimming Pool</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#schoolLibrary"><i class="fa fa-thumbtack"></i> School Library</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#musicRoom"><i class="fa fa-thumbtack"></i> Music Room</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fa fa-envelope icon"></i> Contact 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    
+    
+    
+    <!--<div class="motto-section">
+        <h2 class="school-motto">Kenyan Heart, Global Mind</h2>
+    </div>-->
+    
+    
+    
+
+
+    
+    
+    <!-- Global Alert Container -->
+<div id="global-alert"></div>
+   
+    
+    
+<section class="auth-container d-flex align-items-center justify-content-center">
+    <div class="auth-card" style="max-width: 500px; width: 100%;">
+        <form id="loginForm" class="needs-validation" novalidate>
+            <h2 class="auth-title">Parent Login</h2>
+            
+            <!-- Login Identifier Field -->
+            <div class="form-group">
+                <label for="loginId">Email or Phone Number</label>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person-circle"></i>
+                    </span>
+                    <input type="text" id="loginId" name="loginId" class="form-control"
+                           pattern="^(07\d{8}|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$"
+                           required
+                           aria-describedby="loginIdError">
+                </div>
+                <div class="invalid-feedback" data-error="loginId" id="loginIdError"></div>
+            </div>
+            
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <div class="input-group">
+                    <input type="password" id="loginPassword" name="password" class="form-control"
+                            required
+                           minlength="8"
+                           aria-describedby="passwordError">
+                    <button type="button" class="btn btn-password-toggle"
+                             aria-label="Toggle password visibility">
+                        <i class="fas fa-eye-slash"></i>
+                    </button>
+                </div>
+                <div class="invalid-feedback" data-error="password" id="passwordError"></div>
+                <!-- Added attempts counter (hidden by default) -->
+                <div id="attempt-counter" class="text-danger small mt-2" style="display: none"></div>
+            </div>
+            
+            <!-- Security Check -->
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberDevice" name="rememberDevice">
+                    <label class="form-check-label" for="rememberDevice">
+                        Remember this device
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-school w-100 mt-3">
+                Secure Login
+            </button>
+        </form>
+        
+        <div class="auth-links animate__animated animate__fadeInUp">
+            <a href="#" class="school-link" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</a>
+            <span class="mx-2">•</span>
+            <a href="register.php" class="school-link">Create New Account</a>
+        </div>
+    </div>
+</section>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Reset Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="resetRequestForm">
+                    <div class="form-group">
+                        <label for="resetLoginId">Email or Phone Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-person-circle"></i>
+                            </span>
+                            <input type="text" id="resetLoginId" class="form-control" 
+                                   pattern="^(07\d{8}|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$" 
+                                   required>
+                        </div>
+                        <div class="invalid-feedback">Please enter a valid email or phone number</div>
+                    </div>
+                    <div id="resetRequestMessage" class="text-center mt-3"></div>
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Send Reset Instructions</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+class LoginValidator {
+    constructor(formId) {
+        this.form = document.getElementById(formId);
+        this.initEventListeners();
+        this.initPasswordFeatures();
+    }
+
+    initEventListeners() {
+        if (this.form) {
+            this.form.addEventListener('submit', this.handleSubmit.bind(this));
+            this.form.addEventListener('input', this.handleInput.bind(this));
+        }
+        
+        const resetRequestForm = document.getElementById('resetRequestForm');
+        if (resetRequestForm) {
+            resetRequestForm.addEventListener('submit', this.handlePasswordResetRequest.bind(this));
+        }
+    }
+
+    initPasswordFeatures() {
+        const toggleBtn = this.form?.querySelector('.btn-password-toggle');
+        toggleBtn?.addEventListener('click', () => {
+            const passwordField = this.form.querySelector('#loginPassword');
+            const icon = toggleBtn.querySelector('i');
+            
+            if (passwordField && icon) {
+                const isPassword = passwordField.type === 'password';
+                passwordField.type = isPassword ? 'text' : 'password';
+                icon.classList.toggle('fa-eye');
+                icon.classList.toggle('fa-eye-slash');
+            }
+        });
+    }
+
+    handleInput(e) {
+        this.validateField(e.target.id);
+    }
+
+    validateField(fieldId) {
+        const field = this.form.querySelector(`#${fieldId}`);
+        if (!field) return false;
+
+        const feedbackEl = this.form.querySelector(`[data-error="${fieldId}"]`);
+        let isValid = false;
+
+        switch(fieldId) {
+            case 'loginId':
+                isValid = this.validateLoginId(field.value.trim());
+                break;
+            case 'loginPassword':
+                isValid = field.value.trim().length >= 8;
+                break;
+            default:
+                isValid = field.checkValidity();
+        }
+
+        field.classList.toggle('is-invalid', !isValid);
+        if (feedbackEl) {
+            feedbackEl.textContent = !isValid ? this.getErrorMessage(fieldId) : '';
+        }
+        return isValid;
+    }
+
+    validateLoginId(value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^07\d{8}$/;
+        return emailRegex.test(value) || phoneRegex.test(value);
+    }
+
+    getErrorMessage(fieldId) {
+        const messages = {
+            loginId: 'Please enter a valid email or phone number (07xxxxxxxx)',
+            loginPassword: 'Password must be at least 8 characters'
+        };
+        return messages[fieldId] || 'This field is required';
+    }
+
+    async handleSubmit(e) {
+        e.preventDefault();
+        
+        const loginIdValid = this.validateField('loginId');
+        const passwordValid = this.validateField('loginPassword');
+        
+        if (loginIdValid && passwordValid) {
+            await this.submitLogin();
+        }
+    }
+
+    async submitLogin() {
+        const submitBtn = this.form.querySelector('button[type="submit"]');
+        const originalButtonContent = submitBtn.innerHTML;
+
+        try {
+            this.toggleSubmitButton(submitBtn, true);
+            
+            const loginData = {
+                loginId: this.form.loginId.value.trim(),
+                password: this.form.loginPassword.value.trim(),
+                rememberDevice: this.form.rememberDevice.checked
+            };
+
+            const response = await this.sendLoginRequest(loginData);
+
+            if (response.success) {
+                this.handleLoginSuccess(response);
+            } else {
+                this.handleLoginError(response);
+            }
+        } catch (error) {
+            this.handleLoginError({
+                message: this.getNetworkErrorMessage(error),
+                attempts_remaining: null
+            });
+        } finally {
+            this.toggleSubmitButton(submitBtn, false, originalButtonContent);
+        }
+    }
+
+    async sendLoginRequest(loginData) {
+        const response = await fetch('signin.php', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(loginData)
+        });
+
+        const responseText = await response.text();
+        
+        try {
+            return JSON.parse(responseText);
+        } catch (error) {
+            console.error('Invalid JSON:', responseText);
+            throw new Error('Invalid server response format');
+        }
+    }
+
+    handleLoginSuccess(result) {
+        this.showAlert(result.message, 'success');
+        this.updateAttemptCounter(result.attempts_remaining);
+        setTimeout(() => {
+            window.location.href = result.redirect || 'admission/payment.php';
+        }, 1500);
+    }
+
+    handleLoginError(result) {
+        const message = result.message || 'Authentication failed';
+        const attempts = result.attempts_remaining ?? null;
+        
+        if (message.toLowerCase().includes('locked')) {
+            this.showAlert(message, 'danger');
+            this.updateAttemptCounter(0);
+        } else {
+            this.showAlert(message, 'danger');
+            this.updateAttemptCounter(attempts);
+        }
+    }
+
+    // Keep all password reset functionality unchanged
+    async handlePasswordResetRequest(e) {
+        e.preventDefault();
+        
+        const loginIdInput = document.getElementById('resetLoginId');
+        const responseMessage = document.getElementById('resetRequestMessage');
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalButtonText = submitBtn.innerHTML;
+
+        if (!this.validateLoginId(loginIdInput.value.trim())) {
+            this.showResetErrorMessage(responseMessage, 'Please enter a valid email or phone number');
+            return;
+        }
+
+        try {
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Sending...';
+            submitBtn.disabled = true;
+
+            const response = await this.sendPasswordResetRequest(loginIdInput.value.trim());
+
+            if (response.success) {
+                this.handlePasswordResetSuccess(response, responseMessage, loginIdInput, submitBtn);
+            } else {
+                this.handlePasswordResetError(response, responseMessage, submitBtn, originalButtonText);
+            }
+        } catch (error) {
+            this.handlePasswordResetError(
+                { message: 'An unexpected error occurred. Please try again.' }, 
+                responseMessage, 
+                submitBtn, 
+                originalButtonText
+            );
+        }
+    }
+
+    async sendPasswordResetRequest(loginId) {
+        const response = await fetch('password-reset.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ loginId })
+        });
+        return await response.json();
+    }
+
+    // Preserve all existing UI interaction methods
+    handlePasswordResetSuccess(response, responseMessage, loginIdInput, submitBtn) {
+        responseMessage.textContent = response.message;
+        responseMessage.className = 'text-success';
+        loginIdInput.disabled = true;
+        submitBtn.disabled = true;
+        setTimeout(() => {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal'));
+            if (modal) modal.hide();
+        }, 3000);
+    }
+
+    handlePasswordResetError(response, responseMessage, submitBtn, originalButtonText) {
+        responseMessage.textContent = response.message;
+        responseMessage.className = 'text-danger';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalButtonText;
+    }
+
+    showResetErrorMessage(responseMessage, message) {
+        responseMessage.textContent = message;
+        responseMessage.className = 'text-danger';
+    }
+
+    toggleSubmitButton(button, isLoading, originalContent) {
+        if (isLoading) {
+            button.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Logging in...';
+            button.disabled = true;
+        } else {
+            button.innerHTML = originalContent;
+            button.disabled = false;
+        }
+    }
+
+    updateAttemptCounter(remaining) {
+        const counter = document.getElementById('attempt-counter');
+        if (counter) {
+            counter.textContent = remaining !== null 
+                ? `${remaining} attempt${remaining !== 1 ? 's' : ''} remaining`
+                : '';
+            counter.style.display = remaining !== null ? 'block' : 'none';
+        }
+    }
+
+    showAlert(message, type = 'info') {
+        const alertContainer = document.getElementById('global-alert');
+        alertContainer.innerHTML = '';
+        
+        const alert = document.createElement('div');
+        alert.className = `alert alert-${type} alert-dismissible fade show animate__animated animate__fadeInDown`;
+        alert.role = 'alert';
+        alert.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+
+        alertContainer.appendChild(alert);
+        
+        setTimeout(() => {
+            alert.classList.replace('animate__fadeInDown', 'animate__fadeOutUp');
+            setTimeout(() => alert.remove(), 500);
+        }, 5000);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new LoginValidator('loginForm');
+});
+</script>
+    
+   
+
+
+
+
+
+
+   
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- School Address -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">School Address</h5>
+                <p>Adjacent to Thika Landless, Muranga County</p>
+                <p>P.O. Box 12345, Thika, Kenya</p>
+            </div>
+            
+            <!-- Useful Links -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Useful Links</h5>
+                <ul class="footer-links">
+                    <li><a href="admission/index.php"><i class="fas fa-angle-right fa-lg"></i> Admission Requirements</a></li>
+                    <li><a href="contact.html#contact"><i class="fas fa-angle-right fa-lg"></i> Contact Us</a></li>
+                    <li><a href="#calendar"><i class="fas fa-angle-right fa-lg"></i> School Calendar</a></li>
+                    <li><a href="#webmail"><i class="bi bi-envelope"></i> Webmail</a></li>
+                </ul>
+            </div>
+            
+
+
+            <!-- Connect With Us -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Connect With Us</h5>
+                <ul class="footer-contact">
+                    <li><a href="mailto:info@witquestschool.ac.ug"><i class="bi bi-envelope"></i> info@witquestschool.ac.ke</a></li>
+                    <li><i class="bi bi-telephone"></i> +254-700-123-456</li>
+                    <li><i class="bi bi-whatsapp"></i> +254-788-654-321</li>
+                </ul>
+            </div>
+
+            <!-- Registration -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Registration</h5>
+                <p>Registration No: 123456</p>
+                <p>KNEB Center No: U1234</p>
+            </div>
+        </div><br>
+        <!-- Separator -->
+        <hr class="footer-separator"><br>
+        <!-- Social Media Icons and Copyright -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="copyright">© 2025 Witquest Castle School. All rights reserved. Crowns Tech Ltd.</p>
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div><br>
+</footer>
+    
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script> 
+    <script src="./js/contact.js"></script>
+    
+    <div class="animated-background-container">
+        <div class="gradient-bg"></div>
+        <div class="animated-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+    </div>
+    
+    <div class="animated-background-container">
+    <div class="gradient-bg"></div>
+    <div class="animated-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+</div>
+
+</body>
+
+</html>

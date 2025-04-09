@@ -1,0 +1,300 @@
+/* styles.css */
+/* School Color Scheme */
+:root {
+    --primary-red: #8B0000;
+    --primary-blue: #00008B;
+    --primary-purple: #4B0082;
+    --accent-gold: #FFD700;
+    --light-gray: #f8f9fa;
+    --dark-gray: #212529;
+}
+
+/* Base Styles */
+.portal-body {
+    background: var(--light-gray);
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Navigation Styles */
+.portal-nav {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 0.75rem;
+}
+
+/* Mobile Menu */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Auth Buttons */
+.btn-witquest {
+    background: var(--primary-purple);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-witquest:hover {
+    background: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-witquest-outline {
+    border: 2px solid var(--primary-purple);
+    color: var(--primary-purple);
+    background: transparent;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.btn-witquest-outline:hover {
+    background: var(--primary-purple);
+    color: white;
+}
+
+/* Form Styles */
+.form-control {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+}
+
+/* Modal Header Styles */
+.modal-header {
+    color: white !important; /* Force white text */
+    border-bottom: none;
+}
+
+.witquest-blue-gradient {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+}
+
+.witquest-purple-gradient {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-red) 100%);
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+    border: 2px solid #dee2e6;
+    color: var(--dark-gray) !important; /* Explicit text color */
+    font-weight: 500;
+}
+
+/* Modal Title Styling */
+.modal-title {
+    color: inherit !important; /* Inherit parent's text color */
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Ensure visibility of all modal content */
+.modal-body {
+    color: var(--dark-gray);
+}
+
+
+
+/* Force white text in gradient headers */
+.witquest-blue-gradient .modal-title,
+.witquest-purple-gradient .modal-title {
+    color: white !important;
+}
+
+/* Ensure input group text visibility */
+.input-group-prepend .input-group-text {
+    border-right: none;
+    background-color: #f8f9fa;
+    color: #495057 !important;
+}
+
+/* Fix modal backdrop issues */
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+.modal {
+    z-index: 1050 !important;
+}
+
+/* Phone Number Prefix */
+.input-group > .input-group-prepend + .form-control {
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+}
+
+.input-group > .input-group-prepend:first-child {
+    margin-right: -2px;
+}
+
+/* Password Toggle */
+.btn-password-toggle {
+    background: transparent;
+    border: 2px solid #dee2e6;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    color: var(--dark-gray);
+    transition: all 0.2s ease;
+}
+
+.btn-password-toggle:hover {
+    background: #e9ecef;
+}
+
+/* Validation Styles */
+.is-invalid {
+    border-color: #28a745 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.25rem 1.25rem;
+}
+
+.is-valid {
+    border-color: #28a745 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.25rem 1.25rem;
+}
+
+.invalid-feedback {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875em;
+    color: #dc3545;
+    height: 20px;
+}
+
+.is-valid ~ .invalid-feedback {
+    opacity: 0;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+    color: var(--dark-gray);
+}
+
+[data-strength="weak"] .strength-bar {
+    width: 33%;
+    background: var(--primary-red);
+}
+
+[data-strength="medium"] .strength-bar {
+    width: 66%;
+    background: var(--accent-gold);
+}
+
+[data-strength="strong"] .strength-bar {
+    width: 100%;
+    background: #28a745;
+}
+
+/* Payment Status Card */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+    color: white;
+}
+
+.witquest-red-gradient {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-purple) 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+        z-index: 1000;
+        padding: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-item {
+        margin: 0.25rem 0;
+    }
+
+    .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+    }
+
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-width: 768px) {
+    #current-time {
+        display: none;
+    }
+    
+    .btn-witquest-outline,
+    .btn-witquest {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+}

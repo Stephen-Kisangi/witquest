@@ -1,0 +1,353 @@
+<?php
+session_start();
+// Check if user is logged in and has completed previous steps
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Payment Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="./css/payment.css">
+    <style>
+        /* Styling for the notification */
+        .notification {
+            position: fixed;
+            top: -100px; /* Start offscreen */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: top 0.5s ease;
+            width: auto;
+            max-width: 80%;
+            text-align: center;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        .danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+<!-- Container for notifications -->
+<div id="notification-container"></div>
+
+<header class="site-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="school-branding">
+                        <img src="../images/Picture1 (2).png" alt="School Logo" class="logo">
+                        <h1 class="school-name">Witquest Castle School - Payment Portal</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <nav class="text-end">
+                        <a href="dashboard.php" class="btn btn-outline-light me-2">
+                            <i class="fas fa-home"></i> Dashboard
+                        </a>
+                        <a href="javascript:void(0);" id="logout-btn" class="btn btn-outline-light">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="container py-5">
+        <div class="payment-progress mb-4">
+            <div class="progress-step completed">
+                <div class="step-icon"><i class="fas fa-user-check"></i></div>
+                <div class="step-label">Registration</div>
+            </div>
+            <div class="progress-step completed">
+                <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="step-label">Application</div>
+            </div>
+            <div class="progress-step active">
+                <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+                <div class="step-label">Payment</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-icon"><i class="fas fa-download"></i></div>
+                <div class="step-label">Download</div>
+            </div>
+        </div>
+        
+        <div class="admission-card">
+            <h2 class="text-center mb-4">Complete Your Payment</h2>
+            <p class="text-center mb-4 text-muted">You're almost there! Just complete the payment to continue.</p>
+            
+            <div class="payment-method-card">
+               <div class="method-header">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa Logo" class="method-logo">
+                  <h4 class="method-title mb-0">M-Pesa Payment</h4>
+            </div>
+
+                <form id="mpesaPaymentForm" novalidate>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">M-Pesa Phone Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                            <input type="tel" class="form-control" id="phone" name="phone" 
+                                   pattern="07[0-9]{8}" required
+                                   placeholder="07XXXXXXXX">
+                            <div class="invalid-feedback">
+                                Please enter a valid Kenyan phone number
+                            </div>
+                        </div>
+                        <small class="form-text text-muted">Enter your M-Pesa registered phone number</small>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Amount to Pay</label>
+                        <div class="input-group">
+                            <span class="input-group-text">KES</span>
+                            <input type="number" class="form-control" id="amount" 
+                                   name="amount" value="11000" readonly>
+                        </div>
+                        <small class="form-text text-muted">Application fee: KES 11,000</small>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary pay-button">
+                            <i class="fas fa-mobile-alt me-2"></i>Pay via M-Pesa
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="paymentStatus" class="mt-4" style="display: none;">
+                    <div class="alert alert-info text-center">
+                        <i class="fas fa-sync fa-spin fa-2x mb-3"></i>
+                        <h5 class="alert-heading">Processing Payment</h5>
+                        <p class="mb-0">Please check your phone and enter your M-Pesa PIN</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="support-info mt-4">
+                <p class="mb-0">
+                    Need help? Contact support<br>
+                    <i class="fas fa-phone me-1"></i> +254 700 000000 | 
+                    <i class="fas fa-envelope me-1"></i> support@school.ac.ke
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('mpesaPaymentForm');
+            const phoneInput = document.getElementById('phone');
+            const paymentStatus = document.getElementById('paymentStatus');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const phonePattern = /^07[0-9]{8}$/;
+                if (!phonePattern.test(phoneInput.value)) {
+                    phoneInput.classList.add('is-invalid');
+                    return;
+                }
+
+                phoneInput.classList.remove('is-invalid');
+                form.style.display = 'none';
+                paymentStatus.style.display = 'block';
+
+                setTimeout(() => {
+                    window.location.href = 'download.php';
+                }, 3000);
+            });
+
+            phoneInput.addEventListener('input', function() {
+                const phonePattern = /^07[0-9]{8}$/;
+                this.classList.toggle('is-valid', phonePattern.test(this.value));
+                this.classList.toggle('is-invalid', !phonePattern.test(this.value));
+            });
+            
+            // Function to show notification
+            function showNotification(message, type, redirect = false, redirectUrl = '') {
+                // Create notification element
+                const notification = $('<div class="notification ' + type + '">' + message + '</div>');
+                
+                // Add to container
+                $('#notification-container').append(notification);
+                
+                // Animate in
+                setTimeout(function() {
+                    notification.css('top', '20px');
+                }, 100);
+                
+                // Animate out after delay and handle redirect if needed
+                setTimeout(function() {
+                    notification.css('top', '-100px');
+                    
+                    // Wait for animation to complete before removing
+                    setTimeout(function() {
+                        notification.remove();
+                        
+                        // Redirect if needed
+                        if (redirect) {
+                            window.location.href = redirectUrl;
+                        }
+                    }, 500);
+                }, 3000);
+            }
+            
+            // Handle logout button click
+            $('#logout-btn').click(function(e) {
+                e.preventDefault();
+                
+                // Send AJAX request to logout
+                $.ajax({
+                    url: '../logout.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    success: function(response) {
+                        showNotification(response.message, response.type, response.redirect, response.redirectUrl);
+                    },
+                    error: function() {
+                        // If the AJAX request fails (maybe logout.php doesn't support JSON yet)
+                        // Just redirect to the normal logout page
+                        window.location.href = '../logout.php';
+                    }
+                });
+            });
+            
+            // Handle URL parameters for showing messages (for non-AJAX navigation)
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Check for message parameters in URL
+            var errorParam = getUrlParameter('error');
+            var logoutParam = getUrlParameter('logout');
+            
+            if (errorParam) {
+                var message = '';
+                var type = 'danger';
+                
+                switch (errorParam) {
+                    case 'not_logged_in':
+                        message = 'You are not currently logged in.';
+                        type = 'warning';
+                        break;
+                    case 'unauthorized_logout':
+                        message = 'You must be logged in to log out.';
+                        type = 'danger';
+                        break;
+                    case 'session_expired':
+                        message = 'Your session has expired. Please log in again.';
+                        type = 'warning';
+                        break;
+                    case 'logout_failed':
+                        message = 'There was an issue logging out. Please try again.';
+                        type = 'danger';
+                        break;
+                    default:
+                        message = 'An unexpected error occurred.';
+                        type = 'danger';
+                }
+                
+                showNotification(message, type);
+                
+                // Remove parameters from URL without reloading
+                history.replaceState(null, null, window.location.pathname);
+            }
+            
+            if (logoutParam === 'success') {
+                showNotification('You have been successfully logged out.', 'success');
+                
+                // Remove parameters from URL without reloading
+                history.replaceState(null, null, window.location.pathname);
+            }
+        });
+    </script>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- School Address -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">School Address</h5>
+                <p>Adjacent to Thika Landless, Muranga County</p>
+                <p>P.O. Box 12345, Thika, Kenya</p>
+            </div>
+            
+            <!-- Useful Links -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Useful Links</h5>
+                <ul class="footer-links">
+                    <li><a href="admission/index.php"><i class="fas fa-angle-right fa-lg"></i> Admission Requirements</a></li>
+                    <li><a href="contact.html#contact"><i class="fas fa-angle-right fa-lg"></i> Contact Us</a></li>
+                    <li><a href="#calendar"><i class="fas fa-angle-right fa-lg"></i> School Calendar</a></li>
+                    <li><a href="#webmail"><i class="bi bi-envelope"></i> Webmail</a></li>
+                </ul>
+            </div>
+            
+
+
+            <!-- Connect With Us -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Connect With Us</h5>
+                <ul class="footer-contact">
+                    <li><a href="mailto:info@witquestschool.ac.ug"><i class="bi bi-envelope"></i> info@witquestschool.ac.ke</a></li>
+                    <li><i class="bi bi-telephone"></i> +254-700-123-456</li>
+                    <li><i class="bi bi-whatsapp"></i> +254-788-654-321</li>
+                </ul>
+            </div>
+
+            <!-- Registration -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Registration</h5>
+                <p>Registration No: 123456</p>
+                <p>KNEB Center No: U1234</p>
+            </div>
+        </div><br>
+        <!-- Separator -->
+        <hr class="footer-separator"><br>
+        <!-- Social Media Icons and Copyright -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="copyright">© 2025 Witquest Castle School. All rights reserved. Crowns Tech Ltd.</p>
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div><br>
+</footer>
+</body>
+</html>

@@ -1,0 +1,332 @@
+:root {
+    --deep-red: #8B0000;
+    --deep-blue: #00008B;
+    --deep-purple: #4B0082;
+    --deep-yellow: #FFD700;
+    --green-yellow: #ADFF2F;
+    --deep-orange: #FF4500;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --gray-light: #e9ecef;
+    --text-dark: #343a40;
+    
+    /* Gradient combinations for various elements */
+    --gradient-primary: linear-gradient(135deg, var(--deep-red), var(--deep-purple));
+    --gradient-secondary: linear-gradient(135deg, var(--deep-blue), var(--deep-purple));
+    --gradient-accent: linear-gradient(135deg, var(--deep-yellow), var(--deep-orange));
+    --gradient-modern: linear-gradient(135deg, var(--deep-blue), var(--green-yellow));
+    --gradient-warm: linear-gradient(135deg, var(--deep-orange), var(--deep-red));
+    --gradient-cool: linear-gradient(135deg, var(--deep-blue), var(--deep-yellow));
+  }
+
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--light-background);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    background: linear-gradient(135deg, var(--deep-purple), var(--deep-blue));
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.school-branding {
+    display: flex;
+    align-items: center;
+}
+
+.school-branding .logo {
+    max-height: 45px;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.school-branding .school-name {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.payment-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 15px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+    flex: 0 0 auto;
+    position: relative;
+    min-width: 100px;
+    text-align: center;
+}
+
+.progress-step::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -50%;
+    right: 50%;
+    height: 2px;
+    background-color: var(--deep-red);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.progress-step:first-child::before {
+    display: none;
+}
+
+.progress-step.completed::before,
+.progress-step.active::before {
+    opacity: 1;
+}
+
+.progress-step .step-icon {
+    background-color: var(--deep-purple);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-step.completed .step-icon {
+    background-color: var(--deep-blue);
+}
+
+.progress-step.active .step-icon {
+    background-color: var(--deep-red);
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.progress-step .step-label {
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.admission-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    border-top: 4px solid var(--deep-purple);
+}
+
+.payment-method-card {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.method-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.text-center.mb-4 { 
+    color: green;
+}
+
+.method-logo {
+    max-height: 40px;
+    margin-right: 15px;
+}
+
+
+.pay-button {
+    background-color: var(--deep-blue);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+}
+
+.pay-button:hover {
+    background-color: color-mix(in srgb, var(--deep-blue) 90%, white);
+}
+
+.support-info {
+    background-color: rgba(75, 0, 130, 0.05);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(75, 0, 130, 0.1);
+}
+
+/* Scrollbar for progress steps on small screens */
+.payment-progress::-webkit-scrollbar {
+    height: 4px;
+}
+
+.payment-progress::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+}
+
+.payment-progress::-webkit-scrollbar-thumb {
+    background: var(--deep-purple);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .progress-step .step-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .admission-card {
+        padding: 1rem;
+    }
+
+    .site-header .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .progress-step .step-label {
+        font-size: 0.8rem;
+    }
+}
+
+.footer {
+    background: var(--gradient-secondary); /* Deep blue background */
+    color: white;
+    padding: 40px 20px; /* Added horizontal padding for better spacing */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+    font-size: 1.0rem;
+    line-height: 1.5;
+}
+
+.footer-heading {
+    font-size: 1.5rem;
+    font-weight: 500; /* Slightly bold for emphasis */
+    color:  #FFC107;/* Yellow for headings */
+    margin-bottom: 15px;
+}
+
+.footer-links, .footer-contact {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    /*font-weight: 500;*/
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-links a:hover {
+    color: #FFC107; /* Yellow hover effect */
+    text-shadow: 0 0 5px #FFC107; /* Glow effect on hover */
+}
+
+
+.footer-links i {
+    margin-right: 8px; /* Adds space between the icon and text */
+}
+
+
+.footer-contact i {
+    color: #FFC107;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.footer-contact a {
+    text-decoration: none; /* Removes underline */
+    color: white; /* Ensure the color is white */
+    transition: color 0.3s; /* Adds smooth transition */
+}
+
+.footer-contact a:hover {
+    color: #FFC107; /* Yellow hover effect */
+}
+
+
+.footer-contact li:hover i {
+    color: #fff; /* White icon hover effect */
+    transform: scale(1.1); /* Slight zoom on hover */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.angle-bracket {
+    color: white; /* Yellow color for emphasis */
+    margin-right: 8px; /* Space between bracket and text */
+    font-weight: bold;
+
+}
+
+.footer-separator {
+    border: 0;
+    height: 1px;
+    background-color: white;
+    opacity: 0.6;
+    margin: 20px 0;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+    color: #FFC107; /* Yellow hover effect */
+    transform: scale(1.2);
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 1.0rem;
+    opacity: 0.8;
+    text-align: center; /* Center the copyright notice */
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+}

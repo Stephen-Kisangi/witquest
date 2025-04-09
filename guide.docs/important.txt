@@ -1,0 +1,37 @@
+-- Create user with strong password (replace 'SecurePassword123!' with your own)
+CREATE USER 'school_portal_user'@'localhost' 
+IDENTIFIED BY 'SteveWitquestCastleSchool2025!.';
+
+
+
+-- 5.1 System Configuration
+INSERT INTO system_config (config_key, config_value, description)
+VALUES
+    ('payment_settings', '{"admission_form_fee": 5000, "currency": "KES"}', 'Admission form payment details'),
+    ('security_policy', '{"max_login_attempts": 5, "lock_duration": 30}', 'Account security policies');
+
+-- 5.2 Admin User
+-- Generate password hash
+CALL CreatePasswordHash('IAmTheAdminOfWitquestCastleSchoolDatabase2025!', @adminHash);
+
+-- Create admin user
+INSERT INTO users (full_name, email, phone, password_hash, role)
+VALUES (
+    'Steve Crown',
+    'mathengekisangi@gmail.com',
+    '0792915655',
+    @adminHash,
+    'admin'
+);
+
+
+
+
+<?php
+session_start();
+// Check if user is logged in and has completed previous steps
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witquest Castle School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CDN for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- Preload images -->
+    <link rel="preload" href="./images/hero/children-play-playground-with-slides-climbing-structures_14117-679989.avif" as="image">
+    <link rel="preload" href="./images/hero/Ankole-dance-2jpg.png" as="image">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo and School Name with Tagline -->
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <img src="./images/Picture1 (2).png" alt="Witquest Castle School Logo" class="logo me-2">
+                </a>
+                <div class="school-info ms-3">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <h1 class="school-name">Witquest Castle School</h1>
+                </a>
+                    <p class="tagline"><< Kenyan Heart, Global Mind >> </p>
+                </div>
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Menu Items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
+                            <i class="fa fa-home icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html" id="activitiesDropdown">
+                            <i class="fa fa-info-circle icon"></i> About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Mission</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Vision</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Motto</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="activities.html" id="activitiesDropdown">
+                            <i class="fa fa-cogs icon"></i> Activities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="activitiesDropdown">
+                            <li><a class="dropdown-item" href="activities.html#sports"><i class="fa fa-thumbtack"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Arts</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Music</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Drama</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Debates</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> STEM Programs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Community Outreach</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Field Trips</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="academics.html">
+                            <i class="fa fas fa-book icon"></i> Academics
+                        </a>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="facilities.html" id="activitiesDropdown">
+                            <i class="fa fa-building icon"></i> Facilities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facilitiesDropdown">
+                            <li><a class="dropdown-item" href="facilities.html#studyRoom"><i class="fa fa-thumbtack"></i> Study Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#creativitySpace"><i class="fa fa-thumbtack"></i> Creativity Space</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#laboratory"><i class="fa fa-thumbtack"></i> Laboratory</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#sportField"><i class="fa fa-thumbtack"></i> Sport Field</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#diningRoom"><i class="fa fa-thumbtack"></i> Dining Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#auditorium"><i class="fa fa-thumbtack"></i> Auditorium</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#gymnasticRooms"><i class="fa fa-thumbtack"></i> Gymnastic Rooms</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#swimmingPool"><i class="fa fa-thumbtack"></i> Swimming Pool</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#schoolLibrary"><i class="fa fa-thumbtack"></i> School Library</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#musicRoom"><i class="fa fa-thumbtack"></i> Music Room</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fa fa-envelope icon"></i> Contact 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    
+    
+<!-- Hero Section -->
+<div class="parallax-setion">
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="./images/hero/children-play-playground-with-slides-climbing-structures_14117-679989.avif" class="d-block w-100" alt="School Image 1">
+            <div class="carousel-caption d-block">
+             <div class="hero-content  animate__animated animate__fadeInn">
+                <h5 class= "hero-title animate__animated animate__fadeInUp animate__delay-1s" >Welcome to Witquest Castle School</h5>
+                <p>Kenyan Heart, Global Mind</p>
+                <a href="about.html" class="btn hero-btn animate__animated animate__fadeInUp animate__delay-2s">Learn More About Us</a>
+              </div>    
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="./images/hero/Ankole-dance-2jpg.png" class="d-block w-100" alt="School Image 2">
+            <div class="carousel-caption d-block">
+                <h5>Innovating Education</h5>
+                <p>Where Excellence Meets Opportunity</p>
+                <a href="admission/index.php" class="btn hero-btn animate__animated animate__fadeInUp animate__delay-2s">Admission is Ongoing</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+
+    <!-- Admission and Results Portal Links -->
+    <div class="hero-links left">
+        <a href="admission/index.php" class="btn btn-admission">Admission Portal</a>
+    </div>
+    <div class="hero-links right">
+        <a href="results.html" class="btn btn-results">Results Portal</a>
+    </div>
+</div>
+</div><br><br>
+
+
+<div class="wcs-content">
+    <h1 class="wcs-title">Wiquest Castle School Interactive Display</h1>
+
+    <!-- Control Buttons -->
+    <div class="wcs-controls">
+      <button class="wcs-control-btn" id="toggleNightBtn">Toggle Day/Night</button>
+      <button class="wcs-control-btn" id="showMissionBtn">Show Mission</button>
+      <button class="wcs-control-btn" id="showVisionBtn">Show Vision</button>
+      <button class="wcs-control-btn" id="showValuesBtn">Show Values</button>
+    </div>
+
+    <!-- Castle Container -->
+    <div class="wcs-castle-container" id="castle-container">
+      <div class="wcs-school-ground"></div>
+      <div class="wcs-school-element wcs-school-element-1">
+        <div class="wcs-book"></div>
+      </div>
+      <div class="wcs-school-element wcs-school-element-2">
+        <div class="wcs-pencil"></div>
+      </div>
+      <div class="wcs-rainbow"></div>
+      <div class="wcs-sun" id="sun"></div>
+      <div class="wcs-cloud wcs-cloud-1"></div>
+      <div class="wcs-cloud wcs-cloud-2"></div>
+      <div class="wcs-cloud wcs-cloud-3"></div>
+      
+      <!-- Moving Birds -->
+      <div class="wcs-bird" style="top: 100px; animation-duration: 8s;">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 5 Q15 0 20 5 Q15 10 10 5 Q5 10 0 5 Q5 0 10 5 Z" fill="#000"/>
+        </svg>
+      </div>
+      <div class="wcs-bird" style="top: 150px; animation-duration: 10s;">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 5 Q15 0 20 5 Q15 10 10 5 Q5 10 0 5 Q5 0 10 5 Z" fill="#000"/>
+        </svg>
+      </div>
+      <div class="wcs-bird" style="top: 200px; animation-duration: 12s;">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 5 Q15 0 20 5 Q15 10 10 5 Q5 10 0 5 Q5 0 10 5 Z" fill="#000"/>
+        </svg>
+      </div>
+
+      <div class="wcs-star wcs-star-1">★</div>
+      <div class="wcs-star wcs-star-2">★</div>
+      <div class="wcs-star wcs-star-3">★</div>
+      <div class="wcs-educational-element wcs-book-1">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="20" height="20" fill="#00008B"/>
+          <path d="M5 5H25V25H5V5Z" stroke="#333" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="wcs-educational-element wcs-pencil-1">
+        <svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="5" width="15" height="25" fill="#8B0000"/>
+          <path d="M10 5H25V30H10V5Z" stroke="#333" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="wcs-castle" id="castle">
+        <h2 class="wcs-castle-title">Wiquest Castle School</h2>
+        <div class="wcs-castle-tower wcs-tower-left">
+          <div class="wcs-tower-roof"></div>
+          <div class="wcs-tower-window"></div>
+        </div>
+        <div class="wcs-castle-tower wcs-tower-right">
+          <div class="wcs-tower-roof"></div>
+          <div class="wcs-tower-window"></div>
+        </div>
+        <div class="wcs-castle-tower wcs-tower-center">
+          <div class="wcs-tower-roof"></div>
+          <div class="wcs-tower-window"></div>
+          <div class="wcs-flag">
+            <div class="wcs-flagpole"></div>
+            <div class="wcs-flag-cloth"></div>
+          </div>
+        </div>
+        <div class="wcs-window wcs-window-1"></div>
+        <div class="wcs-window wcs-window-2"></div>
+        <div class="wcs-window wcs-window-3"></div>
+        <div class="wcs-window wcs-window-4"></div>
+        <div class="wcs-door"></div>
+      </div>
+
+      <!-- Messages -->
+      <div class="wcs-message wcs-welcome-message" id="welcome-message">
+        <h3 class="wcs-message-title">Welcome to Wiquest Castle School!</h3>
+        <p class="wcs-message-content">Located in Ara Sub location, Thuthua Location, Ithanga/Kakuzi Sub county, Muranga County (Adjacent to Thika Landless)</p>
+      </div>
+      <div class="wcs-message wcs-mission-message" id="mission-message" style="display: none;">
+        <h3 class="wcs-message-title">Our Mission</h3>
+        <p class="wcs-message-content">To provide a nurturing environment where students excel academically and grow into responsible citizens.</p>
+      </div>
+      <div class="wcs-message wcs-vision-message" id="vision-message" style="display: none;">
+        <h3 class="wcs-message-title">Our Vision</h3>
+        <p class="wcs-message-content">To inspire a passion for learning and empower students to shape a bright future.</p>
+      </div>
+      <div class="wcs-message wcs-values-message" id="values-message" style="display: none;">
+        <h3 class="wcs-message-title">Our Values</h3>
+        <p class="wcs-message-content">Integrity, excellence, and community guide our actions every day.</p>
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="wcs-info-section">
+      <h3 class="wcs-info-title">About Wiquest Castle School</h3>
+      <p class="wcs-info-text">Our school provides a unique learning environment where young minds flourish through creativity and academic excellence.</p>
+      <a href="about.html" class="btn hero-btn info animate__animated animate__fadeInUp animate__delay-2s">Learn About Us</a>
+    </div>
+  </div>
+
+
+
+
+<!-- School Highlights Section -->
+<section id="school-highlights" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="welcome-message">
+                    <h2>Growing Young Minds</h2>
+                    <p class="lead">Witquest Castle School provides a nurturing educational journey that balances academic foundations with creative exploration.</p>
+                    <p>Founded on the principles of child-centered learning, we prepare young learners to become curious, confident, and compassionate global citizens while celebrating Kenyan heritage.</p>
+                    <a href="about.html" class="btn btn-primary mt-3">Our Learning Approach</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Award-Winning</h3>
+                            <p>Primary education program</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Creative Arts</h3>
+                            <p>Integrated curriculum</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>12:1</h3>
+                            <p>Student-teacher ratio</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>STEAM</h3>
+                            <p>Focused learning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- Enhanced Mission and Vision Section -->
+<section class="philosophy-section">
+    <div class="divider-top"></div>
+    
+    <!-- Vision Panel -->
+    <div class="philosophy-panel">
+      <div class="philosophy-bg vision-bg"></div>
+      
+      <!-- Decorative Elements -->
+      <div class="floating-particles vision-particles"></div>
+      <div class="castle-emblem vision-emblem">
+        <img src="/api/placeholder/300/300" alt="Castle Emblem" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      
+      <!-- Content -->
+      <div class="content-container">
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-lg-7">
+              <div class="philosophy-content vision-content">
+                <h3 class="philosophy-keyword">VISION</h3>
+                <div class="icon-container">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <h2 class="philosophy-title">Our Vision</h2>
+                <p class="philosophy-statement">
+                  WCS cultivates <span class="highlight">globally-minded achievers</span> through <span class="highlight">superior education</span> and <span class="highlight">creativity</span>.
+                </p>
+                
+                <div class="row gx-5 mt-5 mb-5">
+                  <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255, 255, 255, 0.1);">
+                      <i class="fas fa-globe fa-2x text-white"></i>
+                    </div>
+                    <h5 class="text-white">Globally-Minded</h5>
+                  </div>
+                  <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255, 255, 255, 0.1);">
+                      <i class="fas fa-medal fa-2x text-white"></i>
+                    </div>
+                    <h5 class="text-white">Superior Education</h5>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255, 255, 255, 0.1);">
+                      <i class="fas fa-lightbulb fa-2x text-white"></i>
+                    </div>
+                    <h5 class="text-white">Creativity</h5>
+                  </div>
+                </div>
+                
+                <a href="about.html#vision" class="btn btn-explore">
+                  Explore Our Vision
+                  <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mission Panel -->
+    <div class="philosophy-panel">
+      <div class="philosophy-bg mission-bg"></div>
+      
+      <!-- Decorative Elements -->
+      <div class="floating-particles mission-particles"></div>
+      <div class="castle-emblem mission-emblem">
+        <img src="/api/placeholder/300/300" alt="Castle Emblem" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      
+      <!-- Content -->
+      <div class="content-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="philosophy-content mission-content">
+                <h3 class="philosophy-keyword">MISSION</h3>
+                <div class="icon-container">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <h2 class="philosophy-title">Our Mission</h2>
+                <p class="philosophy-statement">
+                  WCS delivers <span class="highlight">rigorous education</span> to foster <span class="highlight">lifelong learning</span>, <span class="highlight">social responsibility</span>, and <span class="highlight">global citizenship</span>, empowering learners for impactful contributions to society.
+                </p>
+                
+                <div class="row gx-5 mt-5 mb-5">
+                  <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255, 255, 255, 0.1);">
+                      <i class="fas fa-book fa-2x text-white"></i>
+                    </div>
+                    <h5 class="text-white">Rigorous Education</h5>
+                  </div>
+                  <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255, 255, 255, 0.1);">
+                      <i class="fas fa-sync fa-2x text-white"></i>
+                    </div>
+                    <h5 class="text-white">Lifelong Learning</h5>
+                  </div>
+                  <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255, 255, 255, 0.1);">
+                      <i class="fas fa-hands-helping fa-2x text-white"></i>
+                    </div>
+                    <h5 class="text-white">Social Responsibility</h5>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <div class="d-inline-block p-3 rounded-circle mb-3" style="background: rgba(255, 255, 255, 0.1);">
+                      <i class="fas fa-globe-africa fa-2x text-white"></i>
+                    </div>
+                    <h5 class="text-white">Global Citizenship</h5>
+                  </div>
+                </div>
+                
+                <a href="about.html#mission" class="btn btn-explore">
+                  Discover Our Mission
+                  <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="divider-bottom"></div>
+  </section>
+
+  <!-- Add this to your HTML head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<div class="quick-links">
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-md-3 link-column">
+                <a href="/results" class="link-item">
+                    <div class="link-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-main">Academic Progress</div>
+                        <div class="link-sub">View Student Results</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 link-column">
+                <a href="admission/index.php" class="link-item">
+                    <div class="link-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-main">Admissions</div>
+                        <div class="link-sub">Begin Enrollment Process</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-3 link-column">
+                <a href="academics.html" class="link-item">
+                    <div class="link-icon">
+                        <i class="fas fas fa-book"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-main">School Academic</div>
+                        <div class="link-sub">Discover Learning Paths</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 link-column">
+                <a href="/activities" class="link-item">
+                    <div class="link-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-main">School Programs</div>
+                        <div class="link-sub">Explore Activities</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 link-column">
+                <a href="contact.html" class="link-item">
+                    <div class="link-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-main">Connect With Us</div>
+                        <div class="link-sub">Get in Touch</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="head-teacher-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Image Column -->
+            <div class="col-lg-6">
+                <div class="head-teacher-image">
+                    <img src="./images/messages/headteacher.jpg" alt="Head Teacher Stephen Kisangi">
+                </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="col-lg-6">
+                <div class="head-teacher-content ps-lg-5">
+                    <h2 class="section-heading">
+                        <i class="fas fa-user-tie"></i>Leadership Message
+                    </h2>
+
+                    <blockquote class="message-text">
+                        "At Witquest Castle School, we combine international educational standards with local cultural values. Our day school program is carefully designed to nurture self-reliance and academic excellence, creating a strong foundation for lifelong success in our global community."
+                    </blockquote>
+
+                    <p class="head-teacher-name">Stephen Kisangi</p>
+                    <p class="text-muted mb-4">Head Teacher & Education Director</p>
+
+                    <div class="mt-4">
+                        <a href="about.html#leadership" class="btn btn-deep-blue">
+                            <i class="fas fa-book-open btn hero-btn animate__animated animate__fadeInUp animate__delay-2s"></i>Full Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add after Head Teacher's Message Section -->
+
+<!-- Activities Section with Background Image -->
+<section id="activities-highlight" class="py-5">
+    <div class="container">
+       <div class="activities-bg"></div>
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h2 class="section-title">Enriching Activities</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Nurturing talents and developing well-rounded individuals</p>
+            </div>
+        </div>
+        
+        <div class="row activities-grid g-4">
+            <!-- Activity Item 1 -->
+            <div class="col-md-4">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fa fa-volleyball-ball"></i>
+                    </div>
+                    <h3>Sports</h3>
+                    <p>From football to swimming, our comprehensive sports program builds teamwork, discipline, and physical fitness.</p>
+                    <a href="activities.html#sports" class="activity-link ">Learn more <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Activity Item 2 -->
+            <div class="col-md-4">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fa fa-music"></i>
+                    </div>
+                    <h3>Arts & Music</h3>
+                    <p>Express creativity through various art forms, music lessons, choir, band, and annual performances.</p>
+                    <a href="activities.html#arts" class="activity-link">Learn more <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Activity Item 3 -->
+            <div class="col-md-4">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fa fa-flask"></i>
+                    </div>
+                    <h3>STEM Programs</h3>
+                    <p>Science clubs, robotics competitions, and innovation challenges to nurture future scientists and engineers.</p>
+                    <a href="activities.html#stem" class="activity-link">Learn more <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Activity Item 4 -->
+            <div class="col-md-4">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <h3>Debates & Public Speaking</h3>
+                    <p>Develop communication skills, critical thinking, and confidence through regular debate competitions.</p>
+                    <a href="activities.html#debates" class="activity-link">Learn more <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Activity Item 5 -->
+            <div class="col-md-4">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fa fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Outreach</h3>
+                    <p>Instilling values of compassion and service through volunteer programs and community initiatives.</p>
+                    <a href="activities.html#outreach" class="activity-link">Learn more <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Activity Item 6 -->
+            <div class="col-md-4">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fa fa-globe-africa"></i>
+                    </div>
+                    <h3>Field Trips</h3>
+                    <p>Educational excursions to museums, parks, and historical sites that enhance classroom learning.</p>
+                    <a href="activities.html#fieldTrips" class="activity-link">Learn more <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- View All Activities Button -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="activities.html" class="btn btn-view-all">
+                    View All Activities <i class="fa fa-arrow-circle-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Facilities Section -->
+<br><section class="facilities-section py-6 bg-light">
+    <div class="container">
+        <div class="row mb-6">
+            <div class="col-12 text-center">
+                <h2 class="display-4 text-deep-blue">
+                    <i class="fas fa-university me-3"></i>World-Class Facilities
+                </h2>
+                <p class="lead text-muted">Architecting Future-Ready Learning Spaces</p>
+            </div>
+        </div>
+
+        <div class="row g-4 mosaic-grid">
+            <!-- Sports Complex -->
+            <div class="col-12 col-md-6 col-lg-8">
+                <div class="facility-card">
+                    <img src="./images/activities/sports-day-primary-11.jpg" class="facility-img" alt="Sports Complex">
+                    <div class="facility-overlay bg-deep-red">
+                        <h3>Olympic Sports Complex</h3>
+                        <div class="hover-content">
+                            <p>FIFA-standard fields, Olympic pools, and athletic tracks</p>
+                            <a href="/sports" class="btn btn-outline-light">Virtual Tour</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="facility-card">
+                    <img src="./images/activities/PS-Library-5-460x295.jpg" class="facility-img" alt="Digital Library">
+                    <div class="facility-overlay bg-deep-blue">
+                        <h3>Knowledge Nexus</h3>
+                        <div class="hover-content">
+                            <p>25,000+ physical/digital resources</p>
+                            <a href="/library" class="btn btn-outline-light">Browse Catalog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEM Center -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="facility-card">
+                    <img src="./images/activities/stem-elementary-school-kid-spark-education.webp" class="facility-img" alt="STEM Lab">
+                    <div class="facility-overlay bg-deep-purple">
+                        <h3>Innovation Hub</h3>
+                        <div class="hover-content">
+                            <p>Advanced robotics and AI research labs</p>
+                            <a href="/stem" class="btn btn-outline-light">Explore Tech</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Facilities -->
+            <div class="col-12 text-center mt-5">
+                <a href="/facilities" class="btn btn-xl btn-dark">
+                    Full Campus Tour
+                    <i class="fas fa-map-marked-alt ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+ <!-- WhatsApp Button -->
+ <a href="https://wa.me/254759769229" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+<!-- Our Promise Section with Button -->
+<div class="our-promise-wrapper">
+    <!-- Our Promise Section Content -->
+    <section class="our-promise-section py-5">
+        <div class="container">
+            <!-- Main Heading with Icon -->
+<h2 class="main-heading text-center mb-5">
+    <i class="fas fa-star"></i> <!-- FontAwesome handshake icon -->
+    Our Promise
+</h2>
+
+            <!-- Students Sub-Section -->
+            <div class="mb-5">
+                <h3 class="sub-heading students mb-3"> <!-- Add class for students icon -->
+                    Students
+                </h3>
+                <p class="promise-text">
+                    At Witquest Castle School, we promise to nurture every student’s unique potential. Our holistic approach ensures that each child develops not only academically but also socially, emotionally, and creatively. We foster a love for learning, critical thinking, and self-discovery, preparing students to thrive in a rapidly changing world.
+                </p>
+            </div>
+
+            <!-- Teacher-Student Sub-Section -->
+            <div>
+                <h3 class="sub-heading teacher-student mb-3"> <!-- Add class for teacher-student icon -->
+                    Teacher-Student Relationship
+                </h3>
+                <p class="promise-text">
+                    We believe that strong teacher-student relationships are the foundation of effective learning. Our dedicated teachers are mentors, guides, and role models who inspire students to achieve their best. Through personalized attention and a supportive environment, we ensure that every student feels valued and empowered.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Button on the Right -->
+    <div class="button-wrapper">
+        <a href="#" class="btn btn-success-l">
+            Book To Check Pupil's Progress
+        </a>
+    </div>
+</div>   
+<br><br>
+  
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- School Address -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">School Address</h5>
+                <p>Adjacent to Thika Landless, Muranga County</p>
+                <p>P.O. Box 12345, Thika, Kenya</p>
+            </div>
+            
+            <!-- Useful Links -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Useful Links</h5>
+                <ul class="footer-links">
+                    <li><a href="admission/index.php"><i class="fas fa-angle-right fa-lg"></i> Admission Requirements</a></li>
+                    <li><a href="contact.html#contact"><i class="fas fa-angle-right fa-lg"></i> Contact Us</a></li>
+                    <li><a href="#calendar"><i class="fas fa-angle-right fa-lg"></i> School Calendar</a></li>
+                    <li><a href="#webmail"><i class="bi bi-envelope"></i> Webmail</a></li>
+                </ul>
+            </div>
+            
+
+
+            <!-- Connect With Us -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Connect With Us</h5>
+                <ul class="footer-contact">
+                    <li><a href="mailto:info@witquestschool.ac.ug"><i class="bi bi-envelope"></i> info@witquestschool.ac.ke</a></li>
+                    <li><i class="bi bi-telephone"></i> +254-700-123-456</li>
+                    <li><i class="bi bi-whatsapp"></i> +254-788-654-321</li>
+                </ul>
+            </div>
+
+            <!-- Registration -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Registration</h5>
+                <p>Registration No: 123456</p>
+                <p>KNEB Center No: U1234</p>
+            </div>
+        </div><br>
+        <!-- Separator -->
+        <hr class="footer-separator"><br>
+        <!-- Social Media Icons and Copyright -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="copyright">© 2025 Witquest Castle School. All rights reserved. Crowns Tech Ltd.</p>
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div><br>
+</footer>
+
+ <!-- Back to Top Button -->
+ <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script>
+                        // Initialize AOS (Animate On Scroll)
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+        
+        // Manual animation trigger for initial elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        setTimeout(() => {
+            fadeElements.forEach(el => {
+                el.classList.add('active');
+            });
+        }, 300);
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
+    const heroSection = document.querySelector('.hero-section') || 
+                        document.querySelector('.parallax-setion') || 
+                        document.querySelector('#heroCarousel');
+    const footer = document.querySelector('footer');
+    
+    if (!whatsappBtn) return;
+    
+    // Function to check if we're in the hero section or footer
+    function checkButtonVisibility() {
+        // Default to showing the button
+        let shouldHide = false;
+        
+        // Check hero section visibility
+        if (heroSection) {
+            const heroRect = heroSection.getBoundingClientRect();
+            const isHeroVisible = (
+                heroRect.top <= 0 && 
+                heroRect.bottom >= 0
+            ) || (
+                heroRect.top >= 0 && 
+                heroRect.top <= window.innerHeight
+            );
+            
+            if (isHeroVisible) shouldHide = true;
+        }
+        
+        // Check footer visibility
+        if (footer) {
+            const footerRect = footer.getBoundingClientRect();
+            const isFooterVisible = (
+                footerRect.top <= window.innerHeight && 
+                footerRect.bottom >= 0
+            );
+            
+            if (isFooterVisible) shouldHide = true;
+        }
+        
+        // Apply visibility
+        if (shouldHide) {
+            whatsappBtn.style.opacity = '0';
+            whatsappBtn.style.pointerEvents = 'none'; // Disable interactions
+        } else {
+            whatsappBtn.style.opacity = '1';
+            whatsappBtn.style.pointerEvents = 'auto'; // Enable interactions
+        }
+    }
+    
+    // Check visibility on scroll
+    window.addEventListener('scroll', checkButtonVisibility);
+    
+    // Check visibility initially
+    checkButtonVisibility();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    if (!backToTopButton) return;
+    
+    function toggleBackToTopButton() {
+        // Calculate one-third of the document height from the bottom
+        const documentHeight = document.documentElement.scrollHeight;
+        const oneThirdFromBottom = documentHeight - (window.innerHeight / 3);
+        
+        // Get current scroll position
+        const scrollPosition = window.scrollY + window.innerHeight;
+        
+        // Show button only when we're in the bottom third of the page
+        if (scrollPosition > oneThirdFromBottom) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    }
+    
+    // Check visibility on scroll
+    window.addEventListener('scroll', toggleBackToTopButton);
+    
+    // Check visibility initially
+    toggleBackToTopButton();
+    
+    // Add click event to scroll to top
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+    </script>
+    
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

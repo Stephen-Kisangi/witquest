@@ -1,0 +1,656 @@
+:root {
+    --deep-red: #8B0000;
+    --deep-blue: #00008B;
+    --deep-purple: #4B0082;
+    --deep-yellow: #FFD700;
+    --green-yellow: #ADFF2F;
+    --deep-orange: #FF4500;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --gray-light: #e9ecef;
+    --text-dark: #343a40;
+    
+    /* Gradient combinations for various elements */
+    --gradient-primary: linear-gradient(135deg, var(--deep-red), var(--deep-purple));
+    --gradient-secondary: linear-gradient(135deg, var(--deep-blue), var(--deep-purple));
+    --gradient-accent: linear-gradient(135deg, var(--deep-yellow), var(--deep-orange));
+    --gradient-modern: linear-gradient(135deg, var(--deep-blue), var(--green-yellow));
+    --gradient-warm: linear-gradient(135deg, var(--deep-orange), var(--deep-red));
+    --gradient-cool: linear-gradient(135deg, var(--deep-blue), var(--deep-yellow));
+  }
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #f8f9fa;
+}
+
+
+
+/* Header Section */
+.navbar {
+    background-color: #f9f9f9;
+    padding: 0.5rem 0;
+}
+
+/* Logo */
+.logo {
+    height: 50px;
+}
+
+/* School Name and Tagline */
+.school-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.school-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003366; /* Deep blue for school name */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #8B0000;
+    /*font-weight: bold;*/
+    font-style: italic;
+    text-transform: capitalize;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #8B0000; /* Cursor effect */
+    animation: slideIn 2s ease-out, typing 4s steps(30) 2s forwards, blink 1.0s step-end infinite 6s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+
+
+/* Navbar Items */
+.navbar-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar Links */
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+/* Remove underline from the icon */
+.nav-link i {
+    text-decoration: none;
+}
+
+/* Icons */
+.nav-link .icon {
+    font-size: 1.2rem;
+    color: #00008b /* Deep red for icons */
+}
+
+/* Hover State for Links (Menu Name Only) */
+.nav-link:hover {
+    background-color: #e0f7fa; /* Light cyan background on hover */
+    color: #800000;
+}
+
+/* No Hover Effects on Icons */
+.nav-link:hover .icon {
+    color: #8B0000; /* Keep icon color the same on hover */
+}
+
+/* Dropdown Visibility on Hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Ensure it aligns properly */
+}
+
+.nav-item.dropdown.show .dropdown-menu {
+    display: block; /* Show dropdown when toggled */
+}
+
+/* Dropdown Arrows */
+.navbar .dropdown-toggle::after {
+    margin-left: 5px;
+    color: #00008b; /* Deep blue for dropdown arrows */
+    transform: rotate(0deg); /* Remove transition */
+}
+
+/* Rotate dropdown arrow on click */
+.navbar .dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg); /* Rotate the arrow */
+}
+
+
+
+
+/* Dividers */
+.nav-item.divider::before {
+    content: "|";
+    font-size: 1.5rem;
+    color: #800000;
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 8px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #800000; /* Deep red hover for dropdown items */
+    color: #fff;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .school-info {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .nav-item.divider::before {
+        display: none; /* Hide dividers for mobile */
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+
+.hero-section {
+    background: /*linear-gradient(rgba(0, 51, 124, 0.8), rgba(75, 0, 130, 0.8)), */url('../../images/programs/Classroom_4.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('pattern.png');
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.admission-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: -70px;
+    padding: 40px;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--deep-blue);
+    border-color: var(--deep-blue);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #002a66;
+    border-color: #002a66;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 51, 124, 0.5);
+}
+
+.btn-secondary {
+    background-color: var(--deep-purple);
+    border-color: var(--deep-purple);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #3a0066;
+    border-color: #3a0066;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+    background-color: var(--deep-red);
+    border-color: var(--deep-red);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #700000;
+    border-color: #700000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-box {
+    border: none;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.step-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, var(--deep-blue), var(--deep-purple));
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.step-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.step-box:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.step-number {
+    background: linear-gradient(135deg, var(--deep-blue), var(--deep-purple));
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.step-title {
+    color: var(--deep-blue);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.payment-status {
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.status-paid {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-unpaid {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Progress bar styles */
+.progress-container {
+    margin: 30px 0;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 50px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(to right, var(--deep-blue), var(--deep-purple));
+    border-radius: 50px;
+    transition: width 0.6s ease;
+}
+
+.progress-step {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.progress-step-item {
+    text-align: center;
+    flex: 1;
+    font-size: 14px;
+    color: #6c757d;
+    position: relative;
+}
+
+.progress-step-item.active {
+    color: var(--deep-blue);
+    font-weight: 600;
+}
+
+.progress-step-indicator {
+    width: 20px;
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    margin: 0 auto 5px;
+    position: relative;
+    z-index: 5;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px #ced4da;
+}
+
+.progress-step-item.active .progress-step-indicator {
+    background-color: var(--deep-blue);
+    box-shadow: 0 0 0 1px var(--deep-blue);
+}
+
+.progress-step-item.completed .progress-step-indicator {
+    background-color: var(--deep-purple);
+    box-shadow: 0 0 0 1px var(--deep-purple);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s ease;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease;
+}
+
+.slide-in-up {
+    animation: slideInUp 0.5s ease;
+}
+
+/* Accessibility improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+:focus {
+    outline: 3px solid rgba(0, 51, 124, 0.5);
+    outline-offset: 2px;
+}
+
+/* Skip to content link for keyboard users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--deep-blue);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Enhanced visual elements */
+.decorative-icon {
+    font-size: 2rem;
+    color: var(--deep-yellow);
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.benefits-section {
+    padding: 80px 0;
+    background-color: var(--light-blue);
+}
+
+.benefit-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--deep-blue);
+}
+
+
+
+.footer {
+    background: var(--gradient-secondary); /* Deep blue background */
+    color: white;
+    padding: 40px 20px; /* Added horizontal padding for better spacing */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+    font-size: 1.0rem;
+    line-height: 1.5;
+}
+
+.footer-heading {
+    font-size: 1.5rem;
+    font-weight: 500; /* Slightly bold for emphasis */
+    color:  #FFC107;/* Yellow for headings */
+    margin-bottom: 15px;
+}
+
+.footer-links, .footer-contact {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    /*font-weight: 500;*/
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-links a:hover {
+    color: #FFC107; /* Yellow hover effect */
+    text-shadow: 0 0 5px #FFC107; /* Glow effect on hover */
+}
+
+
+.footer-links i {
+    margin-right: 8px; /* Adds space between the icon and text */
+}
+
+
+.footer-contact i {
+    color: #FFC107;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.footer-contact a {
+    text-decoration: none; /* Removes underline */
+    color: white; /* Ensure the color is white */
+    transition: color 0.3s; /* Adds smooth transition */
+}
+
+.footer-contact a:hover {
+    color: #FFC107; /* Yellow hover effect */
+}
+
+
+.footer-contact li:hover i {
+    color: #fff; /* White icon hover effect */
+    transform: scale(1.1); /* Slight zoom on hover */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.angle-bracket {
+    color: white; /* Yellow color for emphasis */
+    margin-right: 8px; /* Space between bracket and text */
+    font-weight: bold;
+
+}
+
+.footer-separator {
+    border: 0;
+    height: 1px;
+    background-color: white;
+    opacity: 0.6;
+    margin: 20px 0;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+    color: #FFC107; /* Yellow hover effect */
+    transform: scale(1.2);
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 1.0rem;
+    opacity: 0.8;
+    text-align: center; /* Center the copyright notice */
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+}

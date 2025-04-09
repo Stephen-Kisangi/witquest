@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities - Witquest Castle School</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/activities.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo and School Name with Tagline -->
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <img src="./images/Picture1 (2).png" alt="Witquest Castle School Logo" class="logo me-2">
+                </a>
+                <div class="school-info ms-3">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <h1 class="school-name">Witquest Castle School</h1>
+                </a>
+                    <p class="tagline"><< Kenyan Heart, Global Mind >> </p>
+                </div>
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Menu Items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
+                            <i class="fa fa-home icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html" id="activitiesDropdown">
+                            <i class="fa fa-info-circle icon"></i> About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Mission</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Vision</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Motto</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="activities.html" id="activitiesDropdown">
+                            <i class="fa fa-cogs icon"></i> Activities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="activitiesDropdown">
+                            <li><a class="dropdown-item" href="activities.html#sports"><i class="fa fa-thumbtack"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Arts</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Music</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Drama</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Debates</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> STEM Programs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Community Outreach</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Field Trips</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="academics.html">
+                            <i class="fa fas fa-book icon"></i> Academics
+                        </a>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="facilities.html" id="activitiesDropdown">
+                            <i class="fa fa-building icon"></i> Facilities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facilitiesDropdown">
+                            <li><a class="dropdown-item" href="facilities.html#studyRoom"><i class="fa fa-thumbtack"></i> Study Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#creativitySpace"><i class="fa fa-thumbtack"></i> Creativity Space</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#laboratory"><i class="fa fa-thumbtack"></i> Laboratory</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#sportField"><i class="fa fa-thumbtack"></i> Sport Field</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#diningRoom"><i class="fa fa-thumbtack"></i> Dining Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#auditorium"><i class="fa fa-thumbtack"></i> Auditorium</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#gymnasticRooms"><i class="fa fa-thumbtack"></i> Gymnastic Rooms</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#swimmingPool"><i class="fa fa-thumbtack"></i> Swimming Pool</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#schoolLibrary"><i class="fa fa-thumbtack"></i> School Library</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#musicRoom"><i class="fa fa-thumbtack"></i> Music Room</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fa fa-envelope icon"></i> Contact 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="hero-title">Enriching Activities at Witquest Castle School</h1>
+                    <p class="lead">Exploring talents, developing skills, and creating memorable experiences for our students through diverse and engaging activities.</p>
+                    <button class="btn btn-light mt-3">Upcoming Events</button>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="./images/activities/activities-page/community-volunteer-opportunities-for-kids-header-1024x682.jpg" alt="Students in activity" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Categories -->
+    <section class="py-5 category"> 
+        <div class="container">
+            <h2 class="section-title category mb-5">Activity Categories</h2>
+            <div class="row text-center">
+                <div class="col-6 col-md-3 mb-4" data-aos="fade-up" id="sports">
+                    <div class="category-icon mx-auto">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h5>Sports</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100" id="arts">
+                    <div class="category-icon mx-auto">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h5>Arts & Culture</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-icon mx-auto">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h5>Academic</h5>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-icon mx-auto">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h5>Community</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activities -->
+    <section class="py-5" id="activities">
+        <div class="container">
+            <h2 class="section-title">Recent Activities</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="d-flex flex-wrap justify-content-center mb-4">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sports">Sports</button>
+                <button class="filter-btn" data-filter="arts">Arts & Culture</button>
+                <button class="filter-btn" data-filter="academic">Academic</button>
+                <button class="filter-btn" data-filter="community">Community</button>
+            </div>
+            
+            <div class="row" id="activities-container">
+                <!-- Activity Card 1 -->
+                <div class="col-md-6 col-lg-4 mb-4 activity-item" data-category="sports">
+                    <div class="activity-card" data-aos="fade-up">
+                        <img src="./images/activities/activities-page/zonal-games-championship.webp" class="card-img-top" alt="Zonal Games">
+                        <div class="card-body">
+                            <div class="activity-date">March 15, 2025</div>
+                            <h5 class="activity-title">Zonal Games Championship</h5>
+                            <p class="activity-description">Our students participated in the annual Zonal Games, competing across multiple disciplines and bringing home 3 gold, 5 silver, and 4 bronze medals.</p>
+                            <a href="#activities" class="btn btn-sm" style="background-color: var(--deep-blue); color: white;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity Card 2 -->
+                <div class="col-md-6 col-lg-4 mb-4 activity-item" data-category="arts">
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="./images/activities/activities-page/Ankole-dance-2jpg.png" class="card-img-top" alt="Drama Day">
+                        <div class="card-body">
+                            <div class="activity-date">February 28, 2025</div>
+                            <h5 class="activity-title">Annual Drama Day Festival</h5>
+                            <p class="activity-description">Students showcased their theatrical talents with performances ranging from Kenyan traditional plays to modern adaptations, earning recognition from local arts councils.</p>
+                            <a href="#activities" class="btn btn-sm" style="background-color: var(--deep-blue); color: white;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity Card 3 -->
+                <div class="col-md-6 col-lg-4 mb-4 activity-item" data-category="community">
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./images/activities/activities-page/presidential-visit.jpeg" class="card-img-top" alt="President's Visit">
+                        <div class="card-body">
+                            <div class="activity-date">January 12, 2025</div>
+                            <h5 class="activity-title">Presidential Visit</h5>
+                            <p class="activity-description">Witquest Castle School was honored with a special visit from the President of Kenya, who commended our innovative educational approach and environmental initiatives.</p>
+                            <a href="#activities" class="btn btn-sm" style="background-color: var(--deep-blue); color: white;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity Card 4 -->
+                <div class="col-md-6 col-lg-4 mb-4 activity-item" data-category="sports">
+                    <div class="activity-card" data-aos="fade-up">
+                        <img src="./images/activities/activities-page/inter-school-swimming-gala.jpg" class="card-img-top" alt="Swimming Competition">
+                        <div class="card-body">
+                            <div class="activity-date">December 8, 2024</div>
+                            <h5 class="activity-title">Inter-School Swimming Gala</h5>
+                            <p class="activity-description">Our swimming team competed against 12 other international schools, setting new records in the freestyle and relay categories.</p>
+                            <a href="#activities" class="btn btn-sm" style="background-color: var(--deep-blue); color: white;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity Card 5 -->
+                <div class="col-md-6 col-lg-4 mb-4 activity-item" data-category="academic">
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="./images/activities/activities-page/science-fair.jpg" class="card-img-top" alt="Science Fair">
+                        <div class="card-body">
+                            <div class="activity-date">November 20, 2024</div>
+                            <h5 class="activity-title">Annual Science & Innovation Fair</h5>
+                            <p class="activity-description">Students presented their research projects and innovations, with our Grade 5 team winning the National Young Innovators Award for their sustainable water filtration system.</p>
+                            <a href="#activities" class="btn btn-sm" style="background-color: var(--deep-blue); color: white;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity Card 6 -->
+                <div class="col-md-6 col-lg-4 mb-4 activity-item" data-category="community">
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./images/activities/activities-page/christian-union.jpg" class="card-img-top" alt="Christian Union">
+                        <div class="card-body">
+                            <div class="activity-date">October 15, 2024</div>
+                            <h5 class="activity-title">Christian Union Community Service</h5>
+                            <p class="activity-description">Our Christian Union organized a community outreach program, providing educational materials and mentorship to neighboring schools in underserved areas.</p>
+                            <a href="#activities" class="btn btn-sm" style="background-color: var(--deep-blue); color: white;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary" id="load-more">Load More Activities</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Timeline -->
+    <section class="py-5 timeline"  style="background-color: var(--light-accent);">
+        <div class="container">
+            <h2 class="section-title timelinep">Activities Timeline</h2>
+            
+            <div class="year-tabs">
+                <div class="year-tab active" data-year="2025">2025</div>
+                <div class="year-tab" data-year="2024">2024</div>
+                <div class="year-tab" data-year="2023">2023</div>
+            </div>
+            
+            <div class="timeline" id="activities-timeline">
+                <!-- 2025 Timeline Items -->
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-date">March 15, 2025</div>
+                    <h5 class="timeline-title">Zonal Games Championship</h5>
+                    <p class="timelinep">Our students represented the school with excellence at the Zonal Games Championship, showcasing their athletic prowess across multiple sports.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-date">February 28, 2025</div>
+                    <h5 class="timeline-title">Annual Drama Day Festival</h5>
+                    <p class="timelinep">A spectacular showcase of theatrical talents, with performances that captured the rich cultural heritage of Kenya and contemporary global themes.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-date">January 12, 2025</div>
+                    <h5 class="timeline-title">Presidential Visit</h5>
+                    <p class="timelinep">A momentous occasion as the President of Kenya visited our school to inaugurate our new STEM innovation center.</p>
+                </div>
+                
+                <!-- 2024 Timeline Items -->
+                <div class="timeline-item" data-year="2024" style="display: none;">
+                    <div class="timeline-date">December 8, 2024</div>
+                    <h5 class="timeline-title">Inter-School Swimming Gala</h5>
+                    <p class="timelinep">Our swimming team demonstrated exceptional skills and sportsmanship at the annual Inter-School Swimming Competition.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2024" style="display: none;">
+                    <div class="timeline-date">November 20, 2024</div>
+                    <h5 class="timeline-title">Annual Science & Innovation Fair</h5>
+                    <p class="timelinep">A celebration of young scientific minds and their innovative solutions to real-world problems.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2024" style="display: none;">
+                    <div class="timeline-date">October 15, 2024</div>
+                    <h5 class="timeline-title">Christian Union Community Service</h5>
+                    <p class="timelinep">Our students reached out to the community, embodying the school's values of service and compassion.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2024" style="display: none;">
+                    <div class="timeline-date">September 3, 2024</div>
+                    <h5 class="timeline-title">Admission Day Ceremony</h5>
+                    <p class="timelinep">We welcomed new students to the Witquest Castle School family with traditional ceremonies and cultural performances.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2024" style="display: none;">
+                    <div class="timeline-date">July 28, 2024</div>
+                    <h5 class="timeline-title">Inter-House Athletics Competition</h5>
+                    <p class="timelinep">A thrilling day of athletic competitions between our four houses: Eagles, Lions, Cheetahs, and Falcons.</p>
+                </div>
+                
+                <!-- 2023 Timeline Items -->
+                <div class="timeline-item" data-year="2023" style="display: none;">
+                    <div class="timeline-date">December 15, 2023</div>
+                    <h5 class="timeline-title">End of Year Concert</h5>
+                    <p class="timelinep">Students showcased their musical talents in a spectacular concert featuring traditional and contemporary performances.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2023" style="display: none;">
+                    <div class="timeline-date">November 5, 2023</div>
+                    <h5 class="timeline-title">Environmental Awareness Day</h5>
+                    <p class="timelinep">Our school participated in a tree-planting initiative to promote environmental conservation in the local community.</p>
+                </div>
+                
+                <div class="timeline-item" data-year="2023" style="display: none;">
+                    <div class="timeline-date">October 20, 2023</div>
+                    <h5 class="timeline-title">Mashujaa Day Celebrations</h5>
+                    <p class="timelinep">A commemoration of Kenya's heroes with cultural performances and educational activities about national heritage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Gallery -->
+    <section class="gallery-section" id="sports">
+        <div class="container">
+            <h2 class="section-title">Activities Gallery</h2>
+            <div class="row" id="gallery-container">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in">
+                        <img src="./images/activities/activities-page/sports-Interhouse-Sports-Day-Term-1-2022-15.jpg" alt="Sports day">
+                        <div class="gallery-item-overlay">
+                            <h6>Sports Day 2025</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="./images/activities/activities-page/Ankole-dance-2jpg.png" alt="Drama performance">
+                        <div class="gallery-item-overlay">
+                            <h6>Drama Festival 2025</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="./images/activities/activities-page/inter-school-swimming-gala.jpg" alt="Swimming competition">
+                        <div class="gallery-item-overlay">
+                            <h6>Swimming Gala 2024</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="./images/activities/activities-page/science-fair-affordable-science-experiments.jpg" alt="Science fair">
+                        <div class="gallery-item-overlay">
+                            <h6>Science Fair 2024</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in">
+                        <img src="./images/activities/activities-page/music-kigarama-traditional-dance_orig.jpg" alt="Music concert">
+                        <div class="gallery-item-overlay">
+                            <h6>Music Concert 2024</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="./images/activities/activities-page/Sancta_Maria_Pupils_on_Cultural_Day_002_22.jpg" alt="Cultural day">
+                        <div class="gallery-item-overlay">
+                            <h6>Cultural Day 2024</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="./images/activities/activities-page/community-volunteer-opportunities-for-kids-header-1024x682.jpg" alt="Community service">
+                        <div class="gallery-item-overlay">
+                            <h6>Community Service 2024</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="./images/activities/activities-page/kids-playroom-organization-children-painting-drawing-kid-s-club-craft-lesson-primary-school-kindergarten-teacher-100818597.webp" alt="Art exhibition">
+                        <div class="gallery-item-overlay">
+                            <h6>Art Exhibition 2023</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- WhatsApp Button -->
+ <a href="https://wa.me/254759769229" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+    <!-- Upcoming Events -->
+    <section class="upcoming-events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            
+            <div class="events-calendar">
+                <div class="month-header">
+                    <h5 class="mb-0">April 2025</h5>
+                </div>
+                
+                <div class="calendar-event">
+                    <div class="calendar-date">
+                        <div>APR</div>
+                        <div>10</div>
+                    </div>
+                    <div class="calendar-details">
+                        <h6 class="calendar-title">International Cultural Day</h6>
+                        <p class="mb-0">A celebration of global cultures represented in our diverse student body.</p>
+                    </div>
+                </div>
+                
+                <div class="calendar-event">
+                    <div class="calendar-date">
+                        <div>APR</div>
+                        <div>15</div>
+                    </div>
+                    <div class="calendar-details">
+                        <h6 class="calendar-title">Regional Mathematics Competition</h6>
+                        <p class="mb-0">Our top math students will represent the school in this prestigious competition.</p>
+                    </div>
+                </div>
+                
+                <div class="calendar-event">
+                    <div class="calendar-date">
+                        <div>APR</div>
+                        <div>22</div>
+                    </div>
+                    <div class="calendar-details">
+                        <h6 class="calendar-title">Earth Day Environmental Project</h6>
+                        <p class="mb-0">A school-wide initiative to promote environmental awareness and conservation.</p>
+                    </div>
+                </div>
+                
+                <div class="month-header mt-4">
+                    <h5 class="mb-0">May 2025</h5>
+                </div>
+                
+                <div class="calendar-event">
+                    <div class="calendar-date">
+                        <div>MAY</div>
+                        <div>05</div>
+                    </div>
+                    <div class="calendar-details">
+                        <h6 class="calendar-title">Annual Sports Day</h6>
+                        <p class="mb-0">A full day of athletic competitions across all age groups and sports categories.</p>
+                    </div>
+                </div>
+                
+                <div class="calendar-event">
+                    <div class="calendar-date">
+                        <div>MAY</div>
+                        <div>18</div>
+                    </div>
+                    <div class="calendar-details">
+                        <h6 class="calendar-title">Science Exhibition</h6>
+                        <p class="mb-0">Showcasing innovative projects from our young scientists across all grades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="./js/activities.js"></script>
+    <!-- Custom JavaScript -->
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
+    const heroSection = document.querySelector('.hero-section') || 
+                        document.querySelector('.parallax-setion') || 
+                        document.querySelector('#heroCarousel');
+    const footer = document.querySelector('footer');
+    
+    if (!whatsappBtn) return;
+    
+    // Function to check if we're in the hero section or footer
+    function checkButtonVisibility() {
+        // Default to showing the button
+        let shouldHide = false;
+        
+        // Check hero section visibility
+        if (heroSection) {
+            const heroRect = heroSection.getBoundingClientRect();
+            const isHeroVisible = (
+                heroRect.top <= 0 && 
+                heroRect.bottom >= 0
+            ) || (
+                heroRect.top >= 0 && 
+                heroRect.top <= window.innerHeight
+            );
+            
+            if (isHeroVisible) shouldHide = true;
+        }
+        
+        // Check footer visibility
+        if (footer) {
+            const footerRect = footer.getBoundingClientRect();
+            const isFooterVisible = (
+                footerRect.top <= window.innerHeight && 
+                footerRect.bottom >= 0
+            );
+            
+            if (isFooterVisible) shouldHide = true;
+        }
+        
+        // Apply visibility
+        if (shouldHide) {
+            whatsappBtn.style.opacity = '0';
+            whatsappBtn.style.pointerEvents = 'none'; // Disable interactions
+        } else {
+            whatsappBtn.style.opacity = '1';
+            whatsappBtn.style.pointerEvents = 'auto'; // Enable interactions
+        }
+    }
+    
+    // Check visibility on scroll
+    window.addEventListener('scroll', checkButtonVisibility);
+    
+    // Check visibility initially
+    checkButtonVisibility();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    if (!backToTopButton) return;
+    
+    function toggleBackToTopButton() {
+        // Calculate one-third of the document height from the bottom
+        const documentHeight = document.documentElement.scrollHeight;
+        const oneThirdFromBottom = documentHeight - (window.innerHeight / 3);
+        
+        // Get current scroll position
+        const scrollPosition = window.scrollY + window.innerHeight;
+        
+        // Show button only when we're in the bottom third of the page
+        if (scrollPosition > oneThirdFromBottom) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    }
+    
+    // Check visibility on scroll
+    window.addEventListener('scroll', toggleBackToTopButton);
+    
+    // Check visibility initially
+    toggleBackToTopButton();
+    
+    // Add click event to scroll to top
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+     </script>
+ 
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- School Address -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">School Address</h5>
+                <p>Adjacent to Thika Landless, Muranga County</p>
+                <p>P.O. Box 12345, Thika, Kenya</p>
+            </div>
+            
+            <!-- Useful Links -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Useful Links</h5>
+                <ul class="footer-links">
+                    <li><a href="admission/index.php"><i class="fas fa-angle-right fa-lg"></i> Admission Requirements</a></li>
+                    <li><a href="contact.html#contact"><i class="fas fa-angle-right fa-lg"></i> Contact Us</a></li>
+                    <li><a href="#calendar"><i class="fas fa-angle-right fa-lg"></i> School Calendar</a></li>
+                    <li><a href="#webmail"><i class="bi bi-envelope"></i> Webmail</a></li>
+                </ul>
+            </div>
+            
+
+
+            <!-- Connect With Us -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Connect With Us</h5>
+                <ul class="footer-contact">
+                    <li><a href="mailto:info@witquestschool.ac.ug"><i class="bi bi-envelope"></i> info@witquestschool.ac.ke</a></li>
+                    <li><i class="bi bi-telephone"></i> +254-700-123-456</li>
+                    <li><i class="bi bi-whatsapp"></i> +254-788-654-321</li>
+                </ul>
+            </div>
+
+            <!-- Registration -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Registration</h5>
+                <p>Registration No: 123456</p>
+                <p>KNEB Center No: U1234</p>
+            </div>
+        </div><br>
+        <!-- Separator -->
+        <hr class="footer-separator"><br>
+        <!-- Social Media Icons and Copyright -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="copyright">© 2025 Witquest Castle School. All rights reserved. Crowns Tech Ltd.</p>
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div><br>
+</footer>
+</body>
+</html>

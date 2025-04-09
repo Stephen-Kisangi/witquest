@@ -1,0 +1,1260 @@
+       :root {
+            --deep-red: #8B0000;
+            --deep-blue: #00008B;
+            --deep-purple: #4B0082;
+            --deep-yellow: #FFD700;
+            --green-yellow: #ADFF2F;
+            --deep-orange: #FF4500;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --text-dark: #343a40;
+            
+            /* Gradient combinations for various elements */
+            --gradient-primary: linear-gradient(135deg, var(--deep-red), var(--deep-purple));
+            --gradient-secondary: linear-gradient(135deg, var(--deep-blue), var(--deep-purple));
+            --gradient-accent: linear-gradient(135deg, var(--deep-yellow), var(--deep-orange));
+            --gradient-modern: linear-gradient(135deg, var(--deep-blue), var(--green-yellow));
+            --gradient-warm: linear-gradient(135deg, var(--deep-orange), var(--deep-red));
+            --gradient-cool: linear-gradient(135deg, var(--deep-blue), var(--deep-yellow));
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+.navbar {
+    background-color: #f9f9f9;
+    padding: 0.5rem 0;
+  }
+  
+  /* Logo */
+  .logo {
+    height: 50px;
+  }
+  
+  /* School Name and Tagline */
+  .school-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+  }
+  
+  .school-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003366; /* Deep blue for school name */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+    color: #8B0000;
+    /*font-weight: bold;*/
+    font-style: italic;
+    text-transform: capitalize;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #8B0000; /* Cursor effect */
+    animation: slideIn 2s ease-out, typing 4s steps(30) 2s forwards, blink 1.0s step-end infinite 6s;
+  }
+  
+  @keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+  }
+  
+  
+  
+  
+  /* Navbar Items */
+  .navbar-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Navbar Links */
+  .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  
+  /* Remove underline from the icon */
+  .nav-link i {
+    text-decoration: none;
+  }
+  
+  /* Icons */
+  .nav-link .icon {
+    font-size: 1.2rem;
+    color: #00008b /* Deep red for icons */
+  }
+  
+  /* Hover State for Links (Menu Name Only) */
+  .nav-link:hover {
+    background-color: #e0f7fa; /* Light cyan background on hover */
+    color: #800000;
+  }
+  
+  /* No Hover Effects on Icons */
+  .nav-link:hover .icon {
+    color: #8B0000; /* Keep icon color the same on hover */
+  }
+  
+  /* Dropdown Visibility on Hover */
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Ensure it aligns properly */
+  }
+  
+  .nav-item.dropdown.show .dropdown-menu {
+    display: block; /* Show dropdown when toggled */
+  }
+  
+  /* Dropdown Arrows */
+  .navbar .dropdown-toggle::after {
+    margin-left: 5px;
+    color: #00008b; /* Deep blue for dropdown arrows */
+    transform: rotate(0deg); /* Remove transition */
+  }
+  
+  /* Rotate dropdown arrow on click */
+  .navbar .dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg); /* Rotate the arrow */
+  }
+  
+  
+  
+  
+  /* Dividers */
+  .nav-item.divider::before {
+    content: "|";
+    font-size: 1.5rem;
+    color: #800000;
+    margin: 0 15px;
+    vertical-align: middle;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+  
+  .dropdown-item {
+    color: #333;
+    padding: 8px 20px;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #800000; /* Deep red hover for dropdown items */
+    color: #fff;
+  }
+  
+  /* Mobile Responsive Adjustments */
+  @media (max-width: 767px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .school-info {
+        text-align: center;
+        margin-left: 0;
+    }
+  
+    .nav-item.divider::before {
+        display: none; /* Hide dividers for mobile */
+    }
+  
+    .nav-link {
+        justify-content: center;
+    }
+  }
+  
+  
+
+           
+        /* Modern Hero Section with Full Background Image */
+        .hero-section {
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            background-color: #000;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../images/facilities/studyrooms-2023-Centerfield-Junior-High-04-1.jpg');
+            background-size: cover;
+            background-position: center;
+            /* Adding overlay with deep colors */
+            background-blend-mode: overlay;
+            background-color: rgba(75, 0, 130, 0.3); /* Deep purple with transparency */
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.7), rgba(75, 0, 130, 0.7)); /* Deep red to deep purple gradient */
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--deep-blue);
+        }
+        
+        .hero-title {
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btn {
+            background: var(--deep-blue);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 139, 0.3);
+        }
+        
+        .hero-btn:hover {
+            background: var(--deep-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(75, 0, 130, 0.4);
+        }
+        .castle-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--deep-yellow);
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+         /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+       
+        
+
+        /* School Introduction */
+        .school-intro {
+            padding: 4rem 0;
+            background-color: var(--white);
+            position: relative;
+            background: linear-gradient(to right, 
+                rgba(75,0,130,0.03) 0%, 
+                rgba(255,255,255,0.95) 50%, 
+                rgba(128,0,0,0.03) 100%
+            );
+        }
+
+        .intro-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .intro-content::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        /* Mission, Vision & Motto */
+        .mission-vision {
+            padding: 5rem 0;
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-accent);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(150px, -150px);
+        }
+
+        .mvv-card {
+            height: 100%;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--white);
+            border-top: 4px solid var(--deep-blue);
+        }
+
+        .mvv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .mvv-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .mvv-icon.mission {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .mvv-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            text-align: center;
+        }
+
+        .mvv-title.vision{
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .mvv-content {
+            flex-grow: 1;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .motto-card {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--deep-blue);
+        }
+
+        .mission-card {
+            background: var(--gradient-modern);
+            color: white;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--deep-blue);
+        }
+
+        .vision-card {
+            background: var(--gradient-modern);
+            color: white;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--deep-blue);
+        }
+
+        .motto-card .mvv-icon
+        {
+            color: var(--white);
+        }
+        .motto-card .mvv-title {
+            color: var(--white);
+        }
+
+        .motto-text {
+            /*font-family: 'Georgia', serif;*/
+            text-align: center;
+            line-height: 1.4;
+            margin: 1rem 0;
+            color: white;
+            flex-grow: 1;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .motto-text span {
+            display: block;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin: 0.5rem 0;
+        }
+
+        /* Leadership Team */
+        .leadership {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .leader-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(75,0,130,0.15);
+        }
+
+        .leader-photo {
+            position: relative;
+            overflow: hidden;
+            height: 0;
+            padding-bottom: 75%; /* 4:3 aspect ratio */
+            background-color: #f0f0f0;
+        }
+
+        .leader-photo img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.5s ease;
+        }
+
+        .leader-card:hover .leader-photo img {
+            transform: scale(1.05);
+        }
+
+        .leader-position {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-modern);
+            color: white;
+            padding: 0.75rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .leader-details {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .leader-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--deep-blue);
+        }
+
+        .leader-qualification {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        .leader-bio {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            padding: 5rem 0;
+            background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234B0082' opacity='0.1'%3E%3Cpath d='M50 15a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 70a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm35-35a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm-70 0a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm49.5-24.7a5 5 0 1 0 7.1 7.1 5 5 0 0 0-7.1-7.1zm-49.5 49.5a5 5 0 1 0 7.1 7.1 5 5 0 0 0-7.1-7.1zm49.5 0a5 5 0 1 0 7.1-7.1 5 5 0 0 0-7.1 7.1zm-56.6-56.6a5 5 0 1 0 7.1-7.1 5 5 0 0 0-7.1 7.1z'/%3E%3C/g%3E%3C/svg%3E");
+            position: relative;
+            animation: gentleMove 40s linear infinite;
+            
+        }
+        .achievements-bg {
+            position: absolute;
+            top: 240px; /* Adjust this value to position below the section subtitle */
+            left: 0;
+
+
+            width: 100%;
+            height: calc(78% - 120px); /* Height calculated from top position to bottom of section */
+            background-image: url('../images/facilities/auditorium-2011-101NB(I)_HKISLowerPrimary_5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(75, 0, 130, 0.3);
+            z-index: 0; /* This should be between the section and cards */
+            background-attachment: fixed;
+        }
+        
+        /* Ensure content appears above the background */
+        .section-header, .achievement-card {
+            position: relative;
+            z-index: 1;
+        }
+
+        
+
+        @keyframes gentleMove {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 0 0, 15px 15px; }
+        }
+
+        .achievement-card {
+            background: var(--gradient-secondary);
+            position: relative;
+            overflow: hidden;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid var(--deep-blue);
+           
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .achievement-icon {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .achievement-year {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .achievement-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-transform: capitalize;
+            
+        }
+
+        .achievement-details {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--white);
+        }
+
+        .section-title-1 {
+            font-size: 2.5rem;
+            color: black;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title-1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .section-subtitle-1 {
+            font-size: 1.2rem;
+            color: var(--deep-orange);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .achievement-quote {
+            background-color: var(--gray-light);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-style: italic;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .quote-icon {
+            color: var(--deep-purple);
+            opacity: 0.3;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .quote-attribution {
+            text-align: right;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        /* Commitment Section */
+        .commitment {
+            padding: 5rem 0;
+            background-color: var(--light-bg);
+        }
+
+        .commitment-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .commitment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .commitment-icon {
+            font-size: 2rem;
+            color: var(--deep-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .commitment-title {
+            font-size: 1.4rem;
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        .commitment-text {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .track-progress {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .progress-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-btn {
+            background-color: var(--white);
+            color: var(--deep-purple);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .progress-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border-top: 4px solid var(--deep-purple);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-content {
+            position: relative;
+        }
+
+        .testimonial-author {
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border: 2px solid var(--deep-red);
+        }
+
+        /* Join Us Section */
+        .join-us {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.7), rgba(75, 0, 130, 0.7)); /* Deep red to deep purple gradient */
+            position: relative;
+            overflow: hidden;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--deep-blue);
+        }
+
+        .join-us::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .join-us::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--light-bg);
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-button {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-weight: 500;
+            color: var(--text-dark);
+            padding: 1.25rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--white);
+            color: var(--deep-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(75,0,130,0.1);
+        }
+
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234B0082'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-radius: 0 0 10px 10px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-warm);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        
+        .back-to-top:hover {
+            opacity: 1;
+            background-color: var(--deep-red);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            transition: all 0.3s ease, opacity 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Modern Button Styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.3);
+            background: var(--gradient-warm);
+        }
+
+        .btn-outline-primary {
+            color: var(--deep-purple);
+            border: 2px solid var(--deep-purple);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--deep-purple);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(75, 0, 130, 0.2);
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--deep-purple);
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-light:hover {
+            background: var(--white);
+            color: var(--deep-red);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline-light:hover {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1199.98px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section {
+                height: 60vh;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .mvv-card, 
+            .leader-card, 
+            .achievement-card, 
+            .commitment-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .school-intro,
+            .mission-vision,
+            .leadership,
+            .achievements,
+            .commitment {
+                padding: 3rem 0;
+            }
+            
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+            
+            .track-progress {
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-section {
+                min-height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .mvv-title {
+                font-size: 1.5rem;
+            }
+            
+            .motto-text {
+                font-size: 1.5rem;
+            }
+            
+            .motto-text span {
+                font-size: 2rem;
+            }
+        }
+
+
+        .footer {
+            background: var(--gradient-secondary); /* Deep blue background */
+            color: white;
+            padding: 40px 20px; /* Added horizontal padding for better spacing */
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+            font-size: 1.0rem;
+            line-height: 1.5;
+        }
+        
+        .footer-heading {
+            font-size: 1.5rem;
+            font-weight: 500; /* Slightly bold for emphasis */
+            color:  #FFC107;/* Yellow for headings */
+            margin-bottom: 15px;
+        }
+        
+        .footer-links, .footer-contact {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li, .footer-contact li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            /*font-weight: 500;*/
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #FFC107; /* Yellow hover effect */
+            text-shadow: 0 0 5px #FFC107; /* Glow effect on hover */
+        }
+        
+        
+        .footer-links i {
+            margin-right: 8px; /* Adds space between the icon and text */
+        }
+        
+        
+        .footer-contact i {
+            color: #FFC107;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        
+        .footer-contact a {
+            text-decoration: none; /* Removes underline */
+            color: white; /* Ensure the color is white */
+            transition: color 0.3s; /* Adds smooth transition */
+        }
+        
+        .footer-contact a:hover {
+            color: #FFC107; /* Yellow hover effect */
+        }
+        
+        
+        .footer-contact li:hover i {
+            color: #fff; /* White icon hover effect */
+            transform: scale(1.1); /* Slight zoom on hover */
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .angle-bracket {
+            color: white; /* Yellow color for emphasis */
+            margin-right: 8px; /* Space between bracket and text */
+            font-weight: bold;
+        
+        }
+        
+        .footer-separator {
+            border: 0;
+            height: 1px;
+            background-color: white;
+            opacity: 0.6;
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: #FFC107; /* Yellow hover effect */
+            transform: scale(1.2);
+        }
+        
+        .copyright {
+            margin-top: 10px;
+            font-size: 1.0rem;
+            opacity: 0.8;
+            text-align: center; /* Center the copyright notice */
+        }
+        
+        
+        
+        
+        
+        /* Responsive Design */
+        @media (max-width: 767px) {
+            .carousel-caption h5 {
+                font-size: 1.5rem;
+            }
+        }
+        
+    
+    

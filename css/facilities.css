@@ -1,0 +1,736 @@
+
+        :root {
+            --deep-red: #8B0000;
+            --deep-blue: #00008B;
+            --deep-purple: #4B0082;
+            --deep-yellow: #FFD700;
+            --green-yellow: #ADFF2F;
+            --deep-orange: #FF4500;
+            
+            /* Gradient combinations for various elements */
+            --gradient-primary: linear-gradient(135deg, var(--deep-red), var(--deep-purple));
+            --gradient-secondary: linear-gradient(135deg, var(--deep-blue), var(--deep-purple));
+            --gradient-accent: linear-gradient(135deg, var(--deep-yellow), var(--deep-orange));
+            --gradient-modern: linear-gradient(135deg, var(--deep-blue), var(--green-yellow));
+            --gradient-warm: linear-gradient(135deg, var(--deep-orange), var(--deep-red));
+            --gradient-cool: linear-gradient(135deg, var(--deep-blue), var(--deep-yellow));
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            overflow-x: hidden;
+        }
+
+
+/* Header Section */
+.navbar {
+  background-color: #f9f9f9;
+  padding: 0.5rem 0;
+}
+
+/* Logo */
+.logo {
+  height: 50px;
+}
+
+/* School Name and Tagline */
+.school-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.school-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #003366; /* Deep blue for school name */
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #8B0000;
+  /*font-weight: bold;*/
+  font-style: italic;
+  text-transform: capitalize;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #8B0000; /* Cursor effect */
+  animation: slideIn 2s ease-out, typing 4s steps(30) 2s forwards, blink 1.0s step-end infinite 6s;
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
+@keyframes typing {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+      border-color: transparent;
+  }
+}
+
+
+
+
+/* Navbar Items */
+.navbar-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar Links */
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+/* Remove underline from the icon */
+.nav-link i {
+  text-decoration: none;
+}
+
+/* Icons */
+.nav-link .icon {
+  font-size: 1.2rem;
+  color: #00008b /* Deep red for icons */
+}
+
+/* Hover State for Links (Menu Name Only) */
+.nav-link:hover {
+  background-color: #e0f7fa; /* Light cyan background on hover */
+  color: #800000;
+}
+
+/* No Hover Effects on Icons */
+.nav-link:hover .icon {
+  color: #8B0000; /* Keep icon color the same on hover */
+}
+
+/* Dropdown Visibility on Hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* Ensure it aligns properly */
+}
+
+.nav-item.dropdown.show .dropdown-menu {
+  display: block; /* Show dropdown when toggled */
+}
+
+/* Dropdown Arrows */
+.navbar .dropdown-toggle::after {
+  margin-left: 5px;
+  color: #00008b; /* Deep blue for dropdown arrows */
+  transform: rotate(0deg); /* Remove transition */
+}
+
+/* Rotate dropdown arrow on click */
+.navbar .dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg); /* Rotate the arrow */
+}
+
+
+
+
+/* Dividers */
+.nav-item.divider::before {
+  content: "|";
+  font-size: 1.5rem;
+  color: #800000;
+  margin: 0 15px;
+  vertical-align: middle;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.dropdown-item {
+  color: #333;
+  padding: 8px 20px;
+}
+
+.dropdown-item:hover {
+  background-color: #800000; /* Deep red hover for dropdown items */
+  color: #fff;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+  .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .school-info {
+      text-align: center;
+      margin-left: 0;
+  }
+
+  .nav-item.divider::before {
+      display: none; /* Hide dividers for mobile */
+  }
+
+  .nav-link {
+      justify-content: center;
+  }
+}
+
+
+
+        
+        
+        /* Modern Hero Section with Full Background Image */
+        .hero-section {
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            background-color: #000;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../images/activities/activities-page/science-fair-affordable-science-experiments.jpg');
+            background-size: cover;
+            background-position: center;
+            /* Adding overlay with deep colors */
+            background-blend-mode: overlay;
+            background-color: rgba(75, 0, 130, 0.3); /* Deep purple with transparency */
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.7), rgba(75, 0, 130, 0.7)); /* Deep red to deep purple gradient */
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--deep-blue);
+        }
+        
+        .hero-title {
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btn {
+            background: var(--deep-blue);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 139, 0.3);
+        }
+        
+        .hero-btn:hover {
+            background: var(--deep-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(75, 0, 130, 0.4);
+        }
+        
+        /* Modern floating navbar */
+        .floating-nav {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.95), rgba(75, 0, 130, 0.95)); /* Deep red to deep purple */
+            border-radius: 100px;
+            padding: 15px 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            margin: -30px auto 60px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-pill {
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 5px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .nav-pill:hover {
+            background: var(--deep-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 139, 0.3);
+        }
+        
+        .nav-pill i {
+            margin-right: 8px;
+            font-size: 12px;
+            color: var(--deep-yellow);
+        }
+
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-warm);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        
+        .back-to-top:hover {
+            opacity: 1;
+            background-color: var(--deep-red);
+        }
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+    transition: all 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+        
+        /* Section styles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            color: var(--deep-purple);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: var(--deep-red);
+            border-radius: 2px;
+        }
+        
+        /* Card styles */
+        .facilities-container {
+            margin-top: 50px;
+        }
+        
+        .facility-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            margin-bottom: 30px;
+            height: 100%;
+            position: relative;
+            border-top: 3px solid var(--deep-blue);
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--deep-red);
+        }
+        
+        .facility-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .facility-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+        }
+        
+        .facility-card:hover .facility-img {
+            transform: scale(1.1);
+        }
+        
+        .facility-card-body {
+            padding: 25px;
+        }
+        
+        .facility-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 190px;
+            right: 20px;
+            z-index: 2;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Using only the deep colors for icons */
+        .facility-card:nth-child(3n+1) .facility-icon {
+            background: var(--deep-red);
+        }
+        
+        .facility-card:nth-child(3n+2) .facility-icon {
+            background: var(--deep-blue);
+        }
+        
+        .facility-card:nth-child(3n+3) .facility-icon {
+            background: var(--deep-purple);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--deep-purple);
+        }
+        
+        .card-text {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Featured badge */
+        .feature-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--deep-red);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+        }
+        
+        /* Virtual tour section */
+        .tour-section {
+            padding: 100px 0;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 0, 139, 0.05), rgba(75, 0, 130, 0.05)); /* Deep blue to deep purple background */
+            overflow: hidden;
+        }
+        
+        .tour-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .tour-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .virtual-tour-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--deep-purple);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(75, 0, 130, 0.2);
+        }
+        
+        .virtual-tour-btn:hover {
+            background: var(--deep-red);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.3);
+        }
+        
+        .virtual-tour-btn i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        /* YouTube video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border: 3px solid var(--deep-blue);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered card animations */
+        .stagger-card:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-card:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-card:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-card:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-card:nth-child(5) { transition-delay: 0.5s; }
+        .stagger-card:nth-child(6) { transition-delay: 0.6s; }
+        .stagger-card:nth-child(7) { transition-delay: 0.7s; }
+        .stagger-card:nth-child(8) { transition-delay: 0.8s; }
+        .stagger-card:nth-child(9) { transition-delay: 0.9s; }
+        .stagger-card:nth-child(10) { transition-delay: 1.0s; }
+        
+        /* Modern circles decoration */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(to right, rgba(75, 0, 130, 0.1), rgba(139, 0, 0, 0.1));
+            top: -100px;
+            right: -100px;
+        }
+        
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to right, rgba(0, 0, 139, 0.1), rgba(75, 0, 130, 0.1));
+            bottom: -50px;
+            left: -50px;
+        }
+
+
+        .footer {
+          background-color: #00008B; /* Deep blue background */
+          color: white;
+          padding: 40px 20px; /* Added horizontal padding for better spacing */
+          font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+          font-size: 1.0rem;
+          line-height: 1.5;
+      }
+      
+      .footer-heading {
+          font-size: 1.5rem;
+          font-weight: 500; /* Slightly bold for emphasis */
+          color:  #FFC107;/* Yellow for headings */
+          margin-bottom: 15px;
+      }
+      
+      .footer-links, .footer-contact {
+          list-style: none;
+          padding: 0;
+      }
+      
+      .footer-links li, .footer-contact li {
+          margin-bottom: 10px;
+      }
+      
+      .footer-links a {
+          color: white;
+          text-decoration: none;
+          /*font-weight: 500;*/
+          transition: color 0.3s, text-shadow 0.3s;
+      }
+      
+      .footer-links a:hover {
+          color: #FFC107; /* Yellow hover effect */
+          text-shadow: 0 0 5px #FFC107; /* Glow effect on hover */
+      }
+      
+      
+      .footer-links i {
+          margin-right: 8px; /* Adds space between the icon and text */
+      }
+      
+      
+      .footer-contact i {
+          color: #FFC107;
+          margin-right: 10px;
+          font-size: 1rem;
+      }
+      
+      .footer-contact a {
+          text-decoration: none; /* Removes underline */
+          color: white; /* Ensure the color is white */
+          transition: color 0.3s; /* Adds smooth transition */
+      }
+      
+      .footer-contact a:hover {
+          color: #FFC107; /* Yellow hover effect */
+      }
+      
+      
+      .footer-contact li:hover i {
+          color: #fff; /* White icon hover effect */
+          transform: scale(1.1); /* Slight zoom on hover */
+          transition: transform 0.3s, color 0.3s;
+      }
+      
+      .angle-bracket {
+          color: white; /* Yellow color for emphasis */
+          margin-right: 8px; /* Space between bracket and text */
+          font-weight: bold;
+      
+      }
+      
+      .footer-separator {
+          border: 0;
+          height: 1px;
+          background-color: white;
+          opacity: 0.6;
+          margin: 20px 0;
+      }
+      
+      .social-icon {
+          color: white;
+          font-size: 1.5rem;
+          margin: 0 10px;
+          transition: color 0.3s, transform 0.3s;
+      }
+      
+      .social-icon:hover {
+          color: #FFC107; /* Yellow hover effect */
+          transform: scale(1.2);
+      }
+      
+      .copyright {
+          margin-top: 10px;
+          font-size: 1.0rem;
+          opacity: 0.8;
+          text-align: center; /* Center the copyright notice */
+      }
+      
+      
+      
+      
+      
+      /* Responsive Design */
+      @media (max-width: 767px) {
+          .carousel-caption h5 {
+              font-size: 1.5rem;
+          }
+      }
+      
+  

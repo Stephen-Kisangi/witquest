@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witquest Castle School - Admin Portal</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #3a0ca3;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav {
+            background-color: #4361ee;
+            padding: 10px 0;
+        }
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .nav li {
+            margin: 0 15px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .dashboard {
+            display: flex;
+            margin-top: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .sidebar h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            color: #4361ee;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+        .sidebar a.active {
+            background-color: #4361ee;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            margin-left: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .content h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn {
+            background-color: #4361ee;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: #3a0ca3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .tab.active {
+            border-bottom: 2px solid #4361ee;
+            color: #4361ee;
+            font-weight: 500;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Witquest Castle School</div>
+        <div>Administration Portal</div>
+    </div>
+    
+    <div class="nav">
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Students</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+    
+    <div class="container">
+        <div class="dashboard">
+            <div class="sidebar">
+                <h3>Results Management</h3>
+                <ul>
+                    <li><a href="#" class="active">Upload Results</a></li>
+                    <li><a href="#">View Results</a></li>
+                    <li><a href="#">Edit Results</a></li>
+                    <li><a href="#">Generate Reports</a></li>
+                    <li><a href="#">Analytics</a></li>
+                </ul>
+                
+                <h3>Academic Year</h3>
+                <select>
+                    <option>2025</option>
+                    <option>2024</option>
+                </select>
+                
+                <h3>Term</h3>
+                <select>
+                    <option>Term 1</option>
+                    <option>Term 2</option>
+                    <option>Term 3</option>
+                </select>
+            </div>
+            
+            <div class="content">
+                <h2>Upload Student Results</h2>
+                
+                <div class="tabs">
+                    <div class="tab active">Individual Upload</div>
+                    <div class="tab">Bulk Upload</div>
+                    <div class="tab">Subject Upload</div>
+                </div>
+                
+                <div class="tab-content active">
+                    <div class="form-group">
+                        <label for="class">Select Class</label>
+                        <select id="class">
+                            <option>Grade 1 East</option>
+                            <option>Grade 1 West</option>
+                            <option>Grade 2 East</option>
+                            <option>Grade 2 West</option>
+                            <option>Grade 3 East</option>
+                            <option>Grade 3 West</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student">Select Student</label>
+                        <select id="student">
+                            <option>WQ001 - John Doe</option>
+                            <option>WQ002 - Jane Smith</option>
+                            <option>WQ003 - Michael Johnson</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Select Subject</label>
+                        <select id="subject">
+                            <option>Mathematics</option>
+                            <option>English</option>
+                            <option>Kiswahili</option>
+                            <option>Science & Technology</option>
+                            <option>Creative Arts</option>
+                            <option>Environmental Activities</option>
+                        </select>
+                    </div>
+                    
+                    <h3>CBC Assessment Areas</h3>
+                    
+                    <div class="form-group">
+                        <label>Knowledge & Understanding (0-20)</label>
+                        <input type="number" min="0" max="20">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Skills & Application (0-50)</label>
+                        <input type="number" min="0" max="50">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Projects & Collaboration (0-20)</label>
+                        <input type="number" min="0" max="20">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Values & Attitude (0-10)</label>
+                        <input type="number" min="0" max="10">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Teacher's Comments</label>
+                        <textarea rows="4"></textarea>
+                    </div>
+                    
+                    <button class="btn">Save Results</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="alert alert-success">
+                        Download our template first. Fill it with student results, and upload it back.
+                    </div>
+                    
+                    <a href="#" class="btn">Download Excel Template</a>
+                    
+                    <div class="file-upload">
+                        <p>Drag and drop your filled template here, or click to browse</p>
+                        <input type="file" style="display: none">
+                        <button class="btn">Browse Files</button>
+                    </div>
+                    
+                    <button class="btn">Upload and Process</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="form-group">
+                        <label for="subject-class">Select Class</label>
+                        <select id="subject-class">
+                            <option>Grade 1 East</option>
+                            <option>Grade 1 West</option>
+                            <option>Grade 2 East</option>
+                            <option>Grade 2 West</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject-upload">Select Subject</label>
+                        <select id="subject-upload">
+                            <option>Mathematics</option>
+                            <option>English</option>
+                            <option>Kiswahili</option>
+                            <option>Science & Technology</option>
+                        </select>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Admission No.</th>
+                                <th>Student Name</th>
+                                <th>Knowledge (0-20)</th>
+                                <th>Skills (0-50)</th>
+                                <th>Projects (0-20)</th>
+                                <th>Values (0-10)</th>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>WQ001</td>
+                                <td>John Doe</td>
+                                <td><input type="number" min="0" max="20" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="50" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="20" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="10" style="width: 60px"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>WQ002</td>
+                                <td>Jane Smith</td>
+                                <td><input type="number" min="0" max="20" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="50" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="20" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="10" style="width: 60px"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>WQ003</td>
+                                <td>Michael Johnson</td>
+                                <td><input type="number" min="0" max="20" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="50" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="20" style="width: 60px"></td>
+                                <td><input type="number" min="0" max="10" style="width: 60px"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <button class="btn" style="margin-top: 20px">Save All Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+#global-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 80%;
+    max-width: 500px;
+}
+
+.alert-message {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.alert-message.success {
+    background-color: #28a745;
+}
+
+.alert-message.error {
+    background-color: #dc3545;
+}
+
+.alert-message.info {
+    background-color: #17a2b8;
+}
+
+
+/* Login Specific Styles */
+#loginPassword {
+    padding-right: 2.5rem;
+}
+
+.form-check-input {
+    border: 2px solid var(--deep-purple);
+}
+
+.form-check-input:checked {
+    background-color: var(--deep-red);
+    border-color: var(--deep-red);
+}
+
+.form-check-label {
+    color: var(--deep-purple);
+    font-size: 0.9rem;
+}
+
+.auth-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.auth-container {
+    background: linear-gradient(135deg, rgba(12, 36, 97, 0.95) 0%, rgba(0, 120, 215, 0.9) 100%),
+    url('./images/abstract-professional-bg.jpg') center/cover;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-password-toggle {
+    border-left: none;
+    background: transparent;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.btn-password-toggle:hover {
+    color: #0d6efd;
+}
+
+
+/* Add these media queries */
+@media (max-width: 768px) {
+    .auth-container {
+        min-height: calc(100vh - 150px);
+        padding: 1rem;
+    }
+    
+    .auth-card {
+        padding: 1.5rem !important;
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 1rem !important;
+        border-radius: 1rem !important;
+    }
+    
+    .auth-title {
+        font-size: 1.75rem;
+    }
+}
+
+
+
+.animated-background-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 700px;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 40px;
+    pointer-events: none;
+}
+
+.gradient-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(12, 36, 97, 0.9),
+        rgba(0, 120, 215, 0.8),
+        rgba(12, 36, 97, 0.7)
+    );
+    animation: gradientShift 12s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-blobs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(40px);
+}
+
+.blob {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: blobFloat 20s linear infinite;
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -50px;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -30px;
+    right: -30px;
+    animation-delay: -5s;
+}
+
+.blob-3 {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    right: 20%;
+    animation-delay: -10s;
+}
+
+@keyframes blobFloat {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(100px, 50px) rotate(90deg);
+    }
+    50% {
+        transform: translate(50px, 100px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50px, 75px) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Update auth-container positioning */
+.auth-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}

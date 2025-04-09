@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witquest Castle School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CDN for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/facilities.css">
+    <link rel="stylesheet" href="./css/academics.css">
+
+    <!-- Preload images -->
+    <link rel="preload" href="./images/hero/children-play-playground-with-slides-climbing-structures_14117-679989.avif" as="image">
+    <link rel="preload" href="./images/hero/Ankole-dance-2jpg.png" as="image">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo and School Name with Tagline -->
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <img src="./images/Picture1 (2).png" alt="Witquest Castle School Logo" class="logo me-2">
+                </a>
+                <div class="school-info ms-3">
+                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <h1 class="school-name">Witquest Castle School</h1>
+                </a>
+                    <p class="tagline"><< Kenyan Heart, Global Mind >> </p>
+                </div>
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Menu Items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
+                            <i class="fa fa-home icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html" id="activitiesDropdown">
+                            <i class="fa fa-info-circle icon"></i> About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Mission</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Vision</a></li>
+                            <li><a class="dropdown-item" href="about.html#mission-vision"><i class="fa fa-thumbtack"></i> Motto</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="activities.html" id="activitiesDropdown">
+                            <i class="fa fa-cogs icon"></i> Activities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="activitiesDropdown">
+                            <li><a class="dropdown-item" href="activities.html#sports"><i class="fa fa-thumbtack"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Arts</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Music</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Drama</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Debates</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> STEM Programs</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Community Outreach</a></li>
+                            <li><a class="dropdown-item" href="activities.html#activities"><i class="fa fa-thumbtack"></i> Field Trips</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="academics.html">
+                            <i class="fa fas fa-book icon"></i> Academics
+                        </a>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="facilities.html" id="activitiesDropdown">
+                            <i class="fa fa-building icon"></i> Facilities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facilitiesDropdown">
+                            <li><a class="dropdown-item" href="facilities.html#studyRoom"><i class="fa fa-thumbtack"></i> Study Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#creativitySpace"><i class="fa fa-thumbtack"></i> Creativity Space</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#laboratory"><i class="fa fa-thumbtack"></i> Laboratory</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#sportField"><i class="fa fa-thumbtack"></i> Sport Field</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#diningRoom"><i class="fa fa-thumbtack"></i> Dining Room</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#auditorium"><i class="fa fa-thumbtack"></i> Auditorium</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#gymnasticRooms"><i class="fa fa-thumbtack"></i> Gymnastic Rooms</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#swimmingPool"><i class="fa fa-thumbtack"></i> Swimming Pool</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#schoolLibrary"><i class="fa fa-thumbtack"></i> School Library</a></li>
+                            <li><a class="dropdown-item" href="facilities.html#musicRoom"><i class="fa fa-thumbtack"></i> Music Room</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fa fa-envelope icon"></i> Contact 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><br>
+
+<!-- Hero Section for Academics Page -->
+<section class="academics-hero py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold text-white mb-3">Academic Excellence</h1>
+                <p class="lead text-white mb-4">Nurturing global citizens through Kenya's Competency-Based Curriculum in a castle-inspired learning environment.</p>
+                <div class="d-flex gap-3">
+                    <a href="#curriculum" class="btn btn-light btn-lg px-4">Explore Curriculum</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Schedule a Visit</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="academics-hero-image position-relative">
+                    <img src="./images/programs/Classroom_4.jpg" alt="Students learning in Witquest Castle School" class="img-fluid rounded shadow-lg">
+                    <div class="floating-badge p-3 bg-white rounded shadow position-absolute">
+                        <div class="d-flex align-items-center">
+                            <div class="badge-icon me-2">
+                                <i class="fas fa-award text-primary fa-2x"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">CBC Accredited</p>
+                                <p class="small mb-0">Ministry of Education Approved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academics Overview Section -->
+<section class="academics-overview py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-heading">Our Academic Approach</h2>
+                <div class="separator my-3 mx-auto"></div>
+                <p class="lead">At Witquest Castle School, we blend Kenya's Competency-Based Curriculum with international teaching methodologies to create well-rounded, globally competitive learners.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box mb-3">
+                            <i class="fas fa-brain fa-3x text-purple"></i>
+                        </div>
+                        <h3 class="card-title h4">Competency-Based</h3>
+                        <p class="card-text">Our CBC implementation focuses on developing essential skills rather than rote memorization, preparing students for real-world challenges.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box mb-3">
+                            <i class="fas fa-globe-africa fa-3x text-blue"></i>
+                        </div>
+                        <h3 class="card-title h4">International Perspective</h3>
+                        <p class="card-text">We incorporate global learning approaches while maintaining strong connections to Kenyan culture and values.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box mb-3">
+                            <i class="fas fa-child fa-3x text-red"></i>
+                        </div>
+                        <h3 class="card-title h4">Personalized Learning</h3>
+                        <p class="card-text">Our small class sizes enable teachers to tailor instruction to each student's unique learning style and pace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Curriculum Section with Tabs -->
+<section id="curriculum" class="curriculum-section py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-heading">Our Curriculum</h2>
+                <div class="separator my-3 mx-auto"></div>
+                <p class="lead">Discover our comprehensive CBC-aligned educational programs for different age groups.</p>
+            </div>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <ul class="nav nav-pills nav-justified mb-4" id="curriculumTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="playgroup-tab" data-bs-toggle="pill" data-bs-target="#playgroup" type="button" role="tab" aria-controls="playgroup" aria-selected="true">
+                    <i class="fas fa-baby me-2"></i>Playgroup (2-4 Years)
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="primary-tab" data-bs-toggle="pill" data-bs-target="#primary" type="button" role="tab" aria-controls="primary" aria-selected="false">
+                    <i class="fas fa-school me-2"></i>Primary (5-12 Years)
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="junior-tab" data-bs-toggle="pill" data-bs-target="#junior" type="button" role="tab" aria-controls="junior" aria-selected="false">
+                    <i class="fas fa-user-graduate me-2"></i>Junior Secondary (12-15 Years)
+                </button>
+            </li>
+        </ul>
+        
+        <!-- Tab Content -->
+        <div class="tab-content" id="curriculumTabsContent">
+            <!-- Playgroup Tab -->
+            <div class="tab-pane fade show active" id="playgroup" role="tabpanel" aria-labelledby="playgroup-tab">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-lg-6">
+                                <h3 class="mb-3">Early Childhood Development</h3>
+                                <p>Our playgroup program focuses on foundational development through play-based learning, laying the groundwork for future academic success while nurturing curiosity and social skills.</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Development of communication and language skills</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Motor skills development through guided play</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Introduction to numbers and letters</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Social and emotional development</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="./images/programs/202406africa_uganda_Kampala_KitanteNurserySchool.webp" alt="Playgroup students at Witquest Castle School" class="img-fluid rounded">
+                            </div>
+                        </div>
+                        
+                        <!-- Accordion for Playgroup -->
+                        <div class="accordion" id="playgroupAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="playgroupHeadingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#playgroupCollapseOne" aria-expanded="true" aria-controls="playgroupCollapseOne">
+                                        Daily Activities
+                                    </button>
+                                </h2>
+                                <div id="playgroupCollapseOne" class="accordion-collapse collapse show" aria-labelledby="playgroupHeadingOne" data-bs-parent="#playgroupAccordion">
+                                    <div class="accordion-body">
+                                        <p>Our playgroup day is structured around developmentally appropriate activities:</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul>
+                                                    <li>Morning circle time</li>
+                                                    <li>Guided play sessions</li>
+                                                    <li>Outdoor exploration</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul>
+                                                    <li>Arts and crafts</li>
+                                                    <li>Music and movement</li>
+                                                    <li>Story time</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="playgroupHeadingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#playgroupCollapseTwo" aria-expanded="false" aria-controls="playgroupCollapseTwo">
+                                        Learning Outcomes
+                                    </button>
+                                </h2>
+                                <div id="playgroupCollapseTwo" class="accordion-collapse collapse" aria-labelledby="playgroupHeadingTwo" data-bs-parent="#playgroupAccordion">
+                                    <div class="accordion-body">
+                                        <p>By the end of our playgroup program, children will:</p>
+                                        <ul>
+                                            <li>Demonstrate improved communication skills</li>
+                                            <li>Show confidence in social interactions</li>
+                                            <li>Exhibit curiosity and eagerness to learn</li>
+                                            <li>Recognize basic letters, numbers and shapes</li>
+                                            <li>Display age-appropriate motor skills</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Primary Tab -->
+            <div class="tab-pane fade" id="primary" role="tabpanel" aria-labelledby="primary-tab">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-lg-6">
+                                <h3 class="mb-3">Primary Education</h3>
+                                <p>Our primary school program fully implements Kenya's Competency-Based Curriculum, focusing on developing core competencies while ensuring academic excellence in a supportive environment.</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Literacy and numeracy mastery</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Critical thinking and problem-solving</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Digital literacy and technology skills</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Creative arts and self-expression</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="./images/programs/1-ipc-header-image-reversed.jpg" alt="Primary students at Witquest Castle School" class="img-fluid rounded">
+                            </div>
+                        </div>
+                        
+                        <!-- Accordion for Primary -->
+                        <div class="accordion" id="primaryAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="primaryHeadingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#primaryCollapseOne" aria-expanded="true" aria-controls="primaryCollapseOne">
+                                        Core Learning Areas
+                                    </button>
+                                </h2>
+                                <div id="primaryCollapseOne" class="accordion-collapse collapse show" aria-labelledby="primaryHeadingOne" data-bs-parent="#primaryAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Lower Primary (Grades 1-3)</h5>
+                                                <ul>
+                                                    <li>Literacy Activities</li>
+                                                    <li>Kiswahili Language Activities</li>
+                                                    <li>Mathematical Activities</li>
+                                                    <li>Environmental Activities</li>
+                                                    <li>Hygiene and Nutrition Activities</li>
+                                                    <li>Religious Education</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Upper Primary (Grades 4-6)</h5>
+                                                <ul>
+                                                    <li>English</li>
+                                                    <li>Kiswahili</li>
+                                                    <li>Mathematics</li>
+                                                    <li>Science and Technology</li>
+                                                    <li>Social Studies</li>
+                                                    <li>Creative Arts</li>
+                                                    <li>Agriculture</li>
+                                                    <li>Religious Education</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="primaryHeadingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#primaryCollapseTwo" aria-expanded="false" aria-controls="primaryCollapseTwo">
+                                        CBC Core Competencies
+                                    </button>
+                                </h2>
+                                <div id="primaryCollapseTwo" class="accordion-collapse collapse" aria-labelledby="primaryHeadingTwo" data-bs-parent="#primaryAccordion">
+                                    <div class="accordion-body">
+                                        <p>Our primary program develops these key competencies as mandated by the CBC:</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul>
+                                                    <li>Communication and collaboration</li>
+                                                    <li>Critical thinking and problem-solving</li>
+                                                    <li>Imagination and creativity</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul>
+                                                    <li>Citizenship</li>
+                                                    <li>Digital literacy</li>
+                                                    <li>Learning to learn</li>
+                                                    <li>Self-efficacy</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="primaryHeadingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#primaryCollapseThree" aria-expanded="false" aria-controls="primaryCollapseThree">
+                                        Assessment Approach
+                                    </button>
+                                </h2>
+                                <div id="primaryCollapseThree" class="accordion-collapse collapse" aria-labelledby="primaryHeadingThree" data-bs-parent="#primaryAccordion">
+                                    <div class="accordion-body">
+                                        <p>Our assessment aligns with CBC principles, focusing on:</p>
+                                        <ul>
+                                            <li>Continuous formative assessment</li>
+                                            <li>Project-based evaluation</li>
+                                            <li>Portfolio development</li>
+                                            <li>Skills demonstration</li>
+                                            <li>Classroom-based assessments (CBA)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Junior Secondary Tab -->
+            <div class="tab-pane fade" id="junior" role="tabpanel" aria-labelledby="junior-tab">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-lg-6">
+                                <h3 class="mb-3">Junior Secondary Education</h3>
+                                <p>Our junior secondary program builds on the CBC foundation established in primary school, focusing on deeper subject mastery and practical application of knowledge while preparing students for senior secondary education.</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Advanced subject-specific knowledge</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Career pathways exploration</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Leadership and community service</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Intermediate research skills</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="./images/programs/20230313-TAN_6118-scaled.jpg" alt="Junior Secondary students at Witquest Castle School" class="img-fluid rounded">
+                            </div>
+                        </div>
+                        
+                        <!-- Accordion for Junior Secondary -->
+                        <div class="accordion" id="juniorAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="juniorHeadingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#juniorCollapseOne" aria-expanded="true" aria-controls="juniorCollapseOne">
+                                        Core Subjects (Grades 7-9)
+                                    </button>
+                                </h2>
+                                <div id="juniorCollapseOne" class="accordion-collapse collapse show" aria-labelledby="juniorHeadingOne" data-bs-parent="#juniorAccordion">
+                                    <div class="accordion-body">
+                                        <p>Our junior secondary curriculum includes these mandatory subjects:</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul>
+                                                    <li>English</li>
+                                                    <li>Kiswahili</li>
+                                                    <li>Mathematics</li>
+                                                    <li>Integrated Science</li>
+                                                    <li>Health Education</li>
+                                                    <li>Pre-Technical and Pre-Career Education</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul>
+                                                    <li>Social Studies</li>
+                                                    <li>Religious Education</li>
+                                                    <li>Business Studies</li>
+                                                    <li>Agriculture</li>
+                                                    <li>Life Skills Education</li>
+                                                    <li>Sports and Physical Education</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="juniorHeadingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#juniorCollapseTwo" aria-expanded="false" aria-controls="juniorCollapseTwo">
+                                        Optional Subjects
+                                    </button>
+                                </h2>
+                                <div id="juniorCollapseTwo" class="accordion-collapse collapse" aria-labelledby="juniorHeadingTwo" data-bs-parent="#juniorAccordion">
+                                    <div class="accordion-body">
+                                        <p>Students select at least one subject from each category:</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Arts and Sports Science</h5>
+                                                <ul>
+                                                    <li>Visual Arts</li>
+                                                    <li>Performing Arts</li>
+                                                    <li>Sports and Physical Education</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Technical Studies</h5>
+                                                <ul>
+                                                    <li>Computer Science</li>
+                                                    <li>Home Science</li>
+                                                    <li>Design and Technology</li>
+                                                    <li>Agriculture</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <h5>Foreign Languages</h5>
+                                            <ul>
+                                                <li>French</li>
+                                                <li>German</li>
+                                                <li>Mandarin</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="juniorHeadingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#juniorCollapseThree" aria-expanded="false" aria-controls="juniorCollapseThree">
+                                        Community Service Learning
+                                    </button>
+                                </h2>
+                                <div id="juniorCollapseThree" class="accordion-collapse collapse" aria-labelledby="juniorHeadingThree" data-bs-parent="#juniorAccordion">
+                                    <div class="accordion-body">
+                                        <p>In line with CBC requirements, our Junior Secondary students engage in:</p>
+                                        <ul>
+                                            <li>Identifying community needs and challenges</li>
+                                            <li>Designing intervention projects</li>
+                                            <li>Implementing community service initiatives</li>
+                                            <li>Reflecting on their learning and impact</li>
+                                        </ul>
+                                        <p>Each student completes at least 45 hours of community service learning per academic year.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- WhatsApp Button -->
+ <a href="https://wa.me/254759769229" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Teaching Approach Section -->
+<section class="teaching-approach py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-heading">Our Teaching Approach</h2>
+                <div class="separator my-3 mx-auto"></div>
+                <p class="lead">We employ innovative teaching methodologies that align with the CBC framework while creating an engaging learning environment.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="approach-card d-flex h-100">
+                    <div class="approach-icon me-4">
+                        <div class="icon-circle bg-red text-white">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="approach-content">
+                        <h4>Collaborative Learning</h4>
+                        <p>Our students work in diverse teams to solve problems, complete projects, and develop critical social skills needed for success in the 21st century.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="approach-card d-flex h-100">
+                    <div class="approach-icon me-4">
+                        <div class="icon-circle bg-blue text-white">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                    </div>
+                    <div class="approach-content">
+                        <h4>Project-Based Learning</h4>
+                        <p>Students engage in hands-on projects that integrate multiple subjects, making learning relevant and applicable to real-world situations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="approach-card d-flex h-100">
+                    <div class="approach-icon me-4">
+                        <div class="icon-circle bg-purple text-white">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <div class="approach-content">
+                        <h4>Inquiry-Based Learning</h4>
+                        <p>We encourage curiosity by guiding students to ask questions, investigate topics, and discover answers through structured inquiry processes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="approach-card d-flex h-100">
+                    <div class="approach-icon me-4">
+                        <div class="icon-circle bg-red text-white">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                    </div>
+                    <div class="approach-content">
+                        <h4>Technology Integration</h4>
+                        <p>Digital literacy is embedded across our curriculum, with age-appropriate technology tools enhancing learning experiences at every level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="cta-card text-center p-5 rounded shadow">
+                    <h3 class="text-white mb-3">Experience the Witquest Castle Difference</h3>
+                    <p class="text-white mb-4">Join our vibrant learning community where your child's potential is nurtured through our unique blend of Kenyan curriculum and international educational practices.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#prospectus" class="btn btn-light btn-lg">Download Prospectus</a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">Book a School Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- WhatsApp Icon (Fixed on the Page) -->
+<div class="whatsapp-icon-fixed">
+    <a href="https://wa.me/25475976929" target="_blank" class="btn btn-success btn-circle">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+</div><br><br>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- School Address -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">School Address</h5>
+                <p>Adjacent to Thika Landless, Muranga County</p>
+                <p>P.O. Box 12345, Thika, Kenya</p>
+            </div>
+            
+            <!-- Useful Links -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Useful Links</h5>
+                <ul class="footer-links">
+                    <li><a href="admission/index.php"><i class="fas fa-angle-right fa-lg"></i> Admission Requirements</a></li>
+                    <li><a href="contact.html#contact"><i class="fas fa-angle-right fa-lg"></i> Contact Us</a></li>
+                    <li><a href="#calendar"><i class="fas fa-angle-right fa-lg"></i> School Calendar</a></li>
+                    <li><a href="#webmail"><i class="bi bi-envelope"></i> Webmail</a></li>
+                </ul>
+            </div>
+            
+
+
+            <!-- Connect With Us -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Connect With Us</h5>
+                <ul class="footer-contact">
+                    <li><a href="mailto:info@witquestschool.ac.ug"><i class="bi bi-envelope"></i> info@witquestschool.ac.ke</a></li>
+                    <li><i class="bi bi-telephone"></i> +254-700-123-456</li>
+                    <li><i class="bi bi-whatsapp"></i> +254-788-654-321</li>
+                </ul>
+            </div>
+
+            <!-- Registration -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Registration</h5>
+                <p>Registration No: 123456</p>
+                <p>KNEB Center No: U1234</p>
+            </div>
+        </div><br>
+        <!-- Separator -->
+        <hr class="footer-separator"><br>
+        <!-- Social Media Icons and Copyright -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="copyright">© 2025 Witquest Castle School. All rights reserved. Crowns Tech Ltd.</p>
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div><br>
+</footer>
+
+ <!-- Back to Top Button -->
+ <div class="back-to-top" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+    
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
+    <script src="./js/academics.js"></script>
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
+    const heroSection = document.querySelector('.hero-section') || 
+                        document.querySelector('.parallax-setion') || 
+                        document.querySelector('#heroCarousel');
+    const footer = document.querySelector('footer');
+    
+    if (!whatsappBtn) return;
+    
+    // Function to check if we're in the hero section or footer
+    function checkButtonVisibility() {
+        // Default to showing the button
+        let shouldHide = false;
+        
+        // Check hero section visibility
+        if (heroSection) {
+            const heroRect = heroSection.getBoundingClientRect();
+            const isHeroVisible = (
+                heroRect.top <= 0 && 
+                heroRect.bottom >= 0
+            ) || (
+                heroRect.top >= 0 && 
+                heroRect.top <= window.innerHeight
+            );
+            
+            if (isHeroVisible) shouldHide = true;
+        }
+        
+        // Check footer visibility
+        if (footer) {
+            const footerRect = footer.getBoundingClientRect();
+            const isFooterVisible = (
+                footerRect.top <= window.innerHeight && 
+                footerRect.bottom >= 0
+            );
+            
+            if (isFooterVisible) shouldHide = true;
+        }
+        
+        // Apply visibility
+        if (shouldHide) {
+            whatsappBtn.style.opacity = '0';
+            whatsappBtn.style.pointerEvents = 'none'; // Disable interactions
+        } else {
+            whatsappBtn.style.opacity = '1';
+            whatsappBtn.style.pointerEvents = 'auto'; // Enable interactions
+        }
+    }
+    
+    // Check visibility on scroll
+    window.addEventListener('scroll', checkButtonVisibility);
+    
+    // Check visibility initially
+    checkButtonVisibility();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    if (!backToTopButton) return;
+    
+    function toggleBackToTopButton() {
+        // Calculate one-third of the document height from the bottom
+        const documentHeight = document.documentElement.scrollHeight;
+        const oneThirdFromBottom = documentHeight - (window.innerHeight / 3);
+        
+        // Get current scroll position
+        const scrollPosition = window.scrollY + window.innerHeight;
+        
+        // Show button only when we're in the bottom third of the page
+        if (scrollPosition > oneThirdFromBottom) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    }
+    
+    // Check visibility on scroll
+    window.addEventListener('scroll', toggleBackToTopButton);
+    
+    // Check visibility initially
+    toggleBackToTopButton();
+    
+    // Add click event to scroll to top
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+    </script>
+</body>
+
+</html>

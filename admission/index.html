@@ -1,0 +1,409 @@
+<?php
+// index.php - top of file
+require_once __DIR__ . '/api/auto_login.php';
+
+
+// If the user is now authenticated (either via session or auto-login), redirect
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_role'])) {
+    header("Location: payment.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witquest Castle School - Admission Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header will be included here -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <!-- Logo and School Name with Tagline -->
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../images/Picture1 (2).png" alt="Witquest Castle School Logo" class="logo">
+                </a>
+                <div class="school-info">
+                    <h1 class="school-name">Witquest Castle School</h1>
+                    <p class="tagline"><< Kenyan Heart, Global Mind >> </p>
+                </div>
+            </div>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Menu Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.php">
+                            <i class="fa fa-home icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../about.html" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-info-circle icon"></i> About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="../about.html#mission"><i class="fa fa-thumbtack"></i> Mission</a></li>
+                            <li><a class="dropdown-item" href="about.html#vision"><i class="fa fa-thumbtack"></i> Vision</a></li>
+                            <li><a class="dropdown-item" href="about.html#motto"><i class="fa fa-thumbtack"></i> Motto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../activities.html" id="activitiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cogs icon"></i> Activities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="activitiesDropdown">
+                            <li><a class="dropdown-item" href="#sports"><i class="fa fa-thumbtack"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="#arts"><i class="fa fa-thumbtack"></i> Arts</a></li>
+                            <li><a class="dropdown-item" href="#clubs"><i class="fa fa-thumbtack"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="#music"><i class="fa fa-thumbtack"></i> Music</a></li>
+                            <li><a class="dropdown-item" href="#drama"><i class="fa fa-thumbtack"></i> Drama</a></li>
+                            <li><a class="dropdown-item" href="#debates"><i class="fa fa-thumbtack"></i> Debates</a></li>
+                            <li><a class="dropdown-item" href="#stem"><i class="fa fa-thumbtack"></i> STEM Programs</a></li>
+                            <li><a class="dropdown-item" href="#outreach"><i class="fa fa-thumbtack"></i> Community Outreach</a></li>
+                            <li><a class="dropdown-item" href="#fieldTrips"><i class="fa fa-thumbtack"></i> Field Trips</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../academics.html">
+                            <i class="fa fa-book icon"></i> Academics
+                        </a>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../facilities.html" id="facilitiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-building icon"></i> Facilities
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facilitiesDropdown">
+                            <li><a class="dropdown-item" href="#studyRoom"><i class="fa fa-thumbtack"></i> Study Room</a></li>
+                            <li><a class="dropdown-item" href="#creativitySpace"><i class="fa fa-thumbtack"></i> Creativity Space</a></li>
+                            <li><a class="dropdown-item" href="#laboratory"><i class="fa fa-thumbtack"></i> Laboratory</a></li>
+                            <li><a class="dropdown-item" href="#sportField"><i class="fa fa-thumbtack"></i> Sport Field</a></li>
+                            <li><a class="dropdown-item" href="#diningRoom"><i class="fa fa-thumbtack"></i> Dining Room</a></li>
+                            <li><a class="dropdown-item" href="#auditorium"><i class="fa fa-thumbtack"></i> Auditorium</a></li>
+                            <li><a class="dropdown-item" href="#gymnasticRooms"><i class="fa fa-thumbtack"></i> Gymnastic Rooms</a></li>
+                            <li><a class="dropdown-item" href="#swimmingPool"><i class="fa fa-thumbtack"></i> Swimming Pool</a></li>
+                            <li><a class="dropdown-item" href="#schoolLibrary"><i class="fa fa-thumbtack"></i> School Library</a></li>
+                            <li><a class="dropdown-item" href="#musicRoom"><i class="fa fa-thumbtack"></i> Music Room</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item divider"></li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">
+                            <i class="fa fa-envelope icon"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeIn">
+                <h1 class="hero-title animate__animated animate__fadeInDown animate__delay-1s">Welcome to Witquest Castle School</h1>
+                <h2 class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Admission Portal</h2>
+                <p class="lead animate__animated animate__fadeIn animate__delay-2s">Excellence in Education for Every Child</p>
+                <p class="animate__animated animate__fadeIn animate__delay-2s">Complete your admission process and begin your journey with us</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Progress Tracking -->
+        <section class="container">
+            <div class="admission-card animate__animated animate__fadeInUp">
+                <h2 class="text-center mb-4">Your Application Progress</h2>
+                
+                <!-- Progress bar component -->
+                <div class="progress-container" aria-label="Application progress, step 1 of 3 complete">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="progress-step-item active completed">
+                            <div class="progress-step-indicator" aria-hidden="true"></div>
+                            <span>Registration</span>
+                        </div>
+                        <div class="progress-step-item">
+                            <div class="progress-step-indicator" aria-hidden="true"></div>
+                            <span>Payment</span>
+                        </div>
+                        <div class="progress-step-item">
+                            <div class="progress-step-indicator" aria-hidden="true"></div>
+                            <span>Documents</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Admission Process Section -->
+                <h2 class="text-center mb-4">Admission Process</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="step-box slide-in-up" style="animation-delay: 0.2s">
+                            <div class="step-number">1</div>
+                            <div class="decorative-icon">
+                                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="step-title">Register</h4>
+                            <p>Create an account in our admission portal to begin your application process.</p>
+                            <a href="../register.php" class="btn btn-sm btn-primary mt-3">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="step-box slide-in-up" style="animation-delay: 0.4s">
+                            <div class="step-number">2</div>
+                            <div class="decorative-icon">
+                                <i class="fas fa-credit-card" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="step-title">Pay Fees</h4>
+                            <p>Make secure payment via MPESA or Bank Transfer with instant confirmation.</p>
+                            <a href="../login.php" class="btn btn-sm btn-primary mt-3">View Payment Options</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="step-box slide-in-up" style="animation-delay: 0.6s">
+                            <div class="step-number">3</div>
+                            <div class="decorative-icon">
+                                <i class="fas fa-file-download" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="step-title">Download Form</h4>
+                            <p>Access and download the admission form to complete your registration.</p>
+                            <a href="download.php" class="btn btn-sm btn-primary mt-3">Download Files</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="../register.php" class="btn btn-primary me-3 animate__animated animate__pulse animate__infinite animate__slower">
+                        <i class="fas fa-user-plus me-2" aria-hidden="true"></i>Register Now
+                    </a>
+                    <a href="../login.php" class="btn btn-secondary animate__animated animate__fadeIn animate__delay-1s">
+                        <i class="fas fa-sign-in-alt me-2" aria-hidden="true"></i>Already Registered? Login
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section class="benefits-section mt-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Why Choose Witquest Castle School</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="benefit-card animate__animated animate__fadeInLeft animate__delay-1s">
+                            <div class="benefit-icon">
+                                <i class="fas fa-medal" aria-hidden="true"></i>
+                            </div>
+                            <h4>Academic Excellence</h4>
+                            <p>Our students consistently achieve top results in national examinations with personalized attention from expert educators.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="benefit-card animate__animated animate__fadeInUp animate__delay-1s">
+                            <div class="benefit-icon">
+                                <i class="fas fa-flask" aria-hidden="true"></i>
+                            </div>
+                            <h4>Modern Facilities</h4>
+                            <p>State-of-the-art laboratories, library, and sports facilities to enhance practical learning experiences.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="benefit-card animate__animated animate__fadeInRight animate__delay-1s">
+                            <div class="benefit-icon">
+                                <i class="fas fa-globe" aria-hidden="true"></i>
+                            </div>
+                            <h4>Global Perspective</h4>
+                            <p>International curriculum that prepares students for success in an increasingly connected world.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+ 
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for animations and accessibility -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize animations for elements that should animate when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.slide-in-up, .slide-in-left, .slide-in-right');
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementBottom = element.getBoundingClientRect().bottom;
+                    
+                    if (elementTop < window.innerHeight && elementBottom > 0) {
+                        element.style.opacity = '1';
+                        element.style.animation = element.className.split(' ')
+                            .find(cls => cls.startsWith('slide-in'))
+                            + ' 0.5s ease forwards';
+                    }
+                });
+            };
+            
+            // Set initial state for scroll animations
+            document.querySelectorAll('.slide-in-up, .slide-in-left, .slide-in-right').forEach(element => {
+                element.style.opacity = '0';
+            });
+            
+            // Run once on load
+            animateOnScroll();
+            
+            // Add scroll listener
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Accessibility enhancements
+            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+            const focusableContent = document.querySelectorAll(focusableElements);
+            
+            // Add visible focus indicators
+            focusableContent.forEach(element => {
+                element.addEventListener('focus', function() {
+                    this.classList.add('focus-visible');
+                });
+                
+                element.addEventListener('blur', function() {
+                    this.classList.remove('focus-visible');
+                });
+            });
+            
+            // Add ARIA labels to decorative elements
+            document.querySelectorAll('.decorative-icon i').forEach(icon => {
+                icon.setAttribute('aria-hidden', 'true');
+            });
+            
+            // Implement keyboard navigation for interactive elements
+            document.querySelectorAll('.step-box').forEach(box => {
+                box.setAttribute('tabindex', '0');
+                
+                box.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        const link = this.querySelector('a');
+                        if (link) link.click();
+                    }
+                });
+            });
+            
+            // Simulate progress advancement (for demo purposes)
+            let currentProgress = 33;
+            const progressSteps = document.querySelectorAll('.progress-step-item');
+            const progressBar = document.querySelector('.progress-bar');
+            
+            // This would be replaced with actual application state tracking in a real implementation
+            if (document.querySelector('#advance-demo')) {
+                document.querySelector('#advance-demo').addEventListener('click', function() {
+                    if (currentProgress < 100) {
+                        currentProgress += 33;
+                        progressBar.style.width = currentProgress + '%';
+                        progressBar.setAttribute('aria-valuenow', currentProgress);
+                        
+                        const nextStepIndex = Math.floor(currentProgress / 33) - 1;
+                        if (nextStepIndex >= 0 && nextStepIndex < progressSteps.length) {
+                            progressSteps[nextStepIndex].classList.add('active');
+                            progressSteps[nextStepIndex].classList.add('completed');
+                            
+                            // Update ARIA label
+                            document.querySelector('.progress-container').setAttribute(
+                                'aria-label', 
+                                `Application progress, step ${nextStepIndex + 1} of 3 complete`
+                            );
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    
+
+    <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- School Address -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">School Address</h5>
+                <p>Adjacent to Thika Landless, Muranga County</p>
+                <p>P.O. Box 12345, Thika, Kenya</p>
+            </div>
+            
+            <!-- Useful Links -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Useful Links</h5>
+                <ul class="footer-links">
+                    <li><a href="admission/index.php"><i class="fas fa-angle-right fa-lg"></i> Admission Requirements</a></li>
+                    <li><a href="contact.html#contact"><i class="fas fa-angle-right fa-lg"></i> Contact Us</a></li>
+                    <li><a href="#calendar"><i class="fas fa-angle-right fa-lg"></i> School Calendar</a></li>
+                    <li><a href="#webmail"><i class="bi bi-envelope"></i> Webmail</a></li>
+                </ul>
+            </div>
+            
+
+
+            <!-- Connect With Us -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Connect With Us</h5>
+                <ul class="footer-contact">
+                    <li><a href="mailto:info@witquestschool.ac.ug"><i class="bi bi-envelope"></i> info@witquestschool.ac.ke</a></li>
+                    <li><i class="bi bi-telephone"></i> +254-700-123-456</li>
+                    <li><i class="bi bi-whatsapp"></i> +254-788-654-321</li>
+                </ul>
+            </div>
+
+            <!-- Registration -->
+            <div class="col-md-3">
+                <h5 class="footer-heading">Registration</h5>
+                <p>Registration No: 123456</p>
+                <p>KNEB Center No: U1234</p>
+            </div>
+        </div><br>
+        <!-- Separator -->
+        <hr class="footer-separator"><br>
+        <!-- Social Media Icons and Copyright -->
+        <div class="row">
+            <div class="col text-center">
+                <p class="copyright">© 2025 Witquest Castle School. All rights reserved. Crowns Tech Ltd.</p>
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </div><br>
+</footer>
+    
+    <script src="../js/index.js"></script>
+    <script src="./admission/portal/js/admissions.js"></script>
+
+</body>
+</html>
